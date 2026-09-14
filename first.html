@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roshni — Renewable Energy Policy Explainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F4EC;
+    --paper-raised: #FBFAF4;
+    --ink: #22301F;
+    --ink-soft: #4C5A47;
+    --line: #DAD5C2;
+    --marigold: #F2A93B;
+    --marigold-deep: #C9852A;
+    --marigold-bg: #FBEBCB;
+    --teal: #1B6B5A;
+    --teal-bg: #E6EFEA;
+    --brick: #B5533C;
+    --brick-bg: #F7E9E3;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--paper); color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  body.lang-hi { font-family: 'Noto Sans Devanagari', 'Work Sans', sans-serif; }
+
+  h1, h2, h3, .display { font-family: 'Fraunces', serif; font-weight: 600; margin: 0; }
+  body.lang-hi h1, body.lang-hi h2, body.lang-hi h3 { font-family: 'Noto Sans Devanagari', serif; }
+
+  .app {
+    display: grid; grid-template-columns: 250px 1fr; height: 100vh;
+    max-width: 1220px; margin: 0 auto; background: var(--paper-raised);
+    border-left: 1px solid var(--line); border-right: 1px solid var(--line);
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    background: var(--paper); border-right: 1px solid var(--line);
+    padding: 26px 20px; display: flex; flex-direction: column; overflow-y: auto;
+  }
+  .mark { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .mark-title { font-size: 21px; line-height: 1.1; }
+  .mark-sub { font-size: 13px; color: var(--ink-soft); margin: 6px 0 22px 0; line-height: 1.5; }
+
+  .section-label { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 8px; }
+
+  .topic-list { list-style: none; padding: 0; margin: 0 0 22px 0; border-top: 1px solid var(--line); }
+  .topic-list li { border-bottom: 1px solid var(--line); }
+  .topic-btn {
+    width: 100%; text-align: left; background: none; border: none; padding: 10px 4px;
+    font-family: inherit; font-size: 14px; color: var(--ink); cursor: pointer;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+  }
+  .topic-btn:hover { color: var(--teal); }
+  .topic-tag { font-size: 11px; color: var(--ink-soft); white-space: nowrap; }
+
+  .sidebar-note {
+    margin-top: auto; font-size: 12px; color: var(--ink-soft); line-height: 1.6;
+    padding-top: 14px; border-top: 1px solid var(--line);
+  }
+
+  /* ---------- Main pane ---------- */
+  .main { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+  .header {
+    padding: 22px 40px 0 40px; border-bottom: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+  }
+  .header-text { padding-bottom: 14px; }
+  .header h1 { font-size: 24px; }
+  .header p { margin: 6px 0 0 0; font-size: 14px; color: var(--ink-soft); max-width: 58ch; }
+
+  .lang-toggle {
+    display: flex; border: 1px solid var(--line); border-radius: 3px; overflow: hidden;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .lang-toggle button {
+    font-family: inherit; font-size: 13px; padding: 7px 14px; border: none; background: var(--paper);
+    color: var(--ink-soft); cursor: pointer;
+  }
+  .lang-toggle button.active { background: var(--teal); color: #fff; }
+
+  .tabs { display: flex; gap: 4px; padding: 0 40px; border-bottom: 1px solid var(--line); background: var(--paper-raised); }
+  .tab-btn {
+    font-family: inherit; font-size: 14px; font-weight: 500; background: none; border: none;
+    padding: 12px 6px; margin-right: 22px; color: var(--ink-soft); cursor: pointer;
+    border-bottom: 2px solid transparent; margin-bottom: -1px;
+  }
+  .tab-btn.active { color: var(--ink); border-bottom-color: var(--marigold); }
+
+  .disclaimer {
+    margin: 14px 40px 0 40px; background: var(--brick-bg); border-left: 3px solid var(--brick);
+    padding: 9px 14px; font-size: 12.5px; color: #6B2E1E; line-height: 1.5;
+  }
+
+  .panel { flex: 1; overflow-y: auto; padding: 24px 40px 36px 40px; }
+
+  /* ---------- Quiz ---------- */
+  .quiz-card { max-width: 62ch; }
+  .quiz-progress { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 10px; }
+  .quiz-question { font-size: 21px; margin-bottom: 18px; line-height: 1.4; }
+  .quiz-input {
+    width: 100%; font-family: inherit; font-size: 15px; padding: 12px 14px;
+    border: 1px solid var(--line); border-radius: 3px; background: var(--paper); color: var(--ink);
+  }
+  .quiz-input:focus { outline: none; border-color: var(--teal); }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option {
+    text-align: left; font-family: inherit; font-size: 14.5px; padding: 13px 16px;
+    border: 1px solid var(--line); border-radius: 3px; background: var(--paper-raised);
+    color: var(--ink); cursor: pointer;
+  }
+  .quiz-option:hover { border-color: var(--teal); }
+  .quiz-option.selected { border-color: var(--teal); background: var(--teal-bg); font-weight: 500; }
+
+  .quiz-nav { display: flex; justify-content: space-between; margin-top: 26px; }
+  .btn-ghost {
+    font-family: inherit; font-size: 14px; background: none; border: 1px solid var(--line);
+    color: var(--ink-soft); padding: 10px 18px; border-radius: 3px; cursor: pointer;
+  }
+  .btn-ghost:hover { border-color: var(--ink-soft); }
+  .btn-primary {
+    font-family: inherit; font-weight: 600; font-size: 14.5px; background: var(--marigold);
+    color: #3A2205; border: none; padding: 10px 22px; border-radius: 3px; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--marigold-deep); }
+  .btn-primary:disabled { opacity: 0.45; cursor: default; }
+
+  .plan-loading { max-width: 60ch; color: var(--ink-soft); font-style: italic; font-size: 15px; }
+
+  /* ---------- Plan output ---------- */
+  .plan-result { max-width: 68ch; }
+  .plan-section { margin-bottom: 24px; }
+  .plan-section h3 { font-size: 16.5px; color: var(--teal); margin-bottom: 8px; }
+  .plan-section .body { font-size: 15px; line-height: 1.7; white-space: pre-wrap; }
+  .plan-section.applies { border-left: 3px solid var(--marigold); padding-left: 16px; }
+  .plan-section.support { border-left: 3px solid var(--teal); padding-left: 16px; }
+  .plan-section.steps { border-left: 3px solid var(--ink-soft); padding-left: 16px; }
+  .plan-section.sources { font-size: 13px; color: var(--ink-soft); font-style: italic; border-left: none; padding-left: 0; }
+
+  .plan-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
+  /* ---------- Chat (ledger) ---------- */
+  .welcome { max-width: 58ch; margin-bottom: 26px; }
+  .welcome h2 { font-size: 19px; margin-bottom: 8px; }
+  .welcome p { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 16px 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: none; border: 1px solid var(--line); color: var(--ink); padding: 8px 14px;
+    border-radius: 3px; font-family: inherit; font-size: 13px; cursor: pointer; text-align: left;
+  }
+  .chip:hover { border-color: var(--teal); color: var(--teal); }
+
+  .entry { margin-bottom: 24px; max-width: 74ch; }
+  .who { font-size: 12px; color: var(--ink-soft); margin-bottom: 5px; }
+  .q-text { font-size: 15.5px; line-height: 1.6; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+  .a-block { border-left: 3px solid var(--marigold); padding: 4px 0 4px 16px; margin-top: 12px; }
+  .a-text { font-size: 15px; line-height: 1.7; white-space: pre-wrap; }
+  .a-source { margin-top: 10px; font-size: 12px; color: var(--teal); font-style: italic; }
+  .loading .a-text { color: var(--ink-soft); font-style: italic; }
+
+  .composer { border-top: 1px solid var(--line); padding: 14px 40px 20px 40px; display: flex; gap: 10px; }
+  .composer input {
+    flex: 1; font-family: inherit; font-size: 15px; padding: 12px 14px;
+    border: 1px solid var(--line); border-radius: 3px; background: var(--paper); color: var(--ink);
+  }
+  .composer input:focus { outline: none; border-color: var(--teal); }
+  .composer button {
+    font-family: inherit; font-weight: 600; font-size: 14px; background: var(--marigold);
+    color: #3A2205; border: none; padding: 0 22px; border-radius: 3px; cursor: pointer;
+  }
+  .composer button:hover { background: var(--marigold-deep); }
+  .composer button:disabled { opacity: 0.5; cursor: default; }
+
+  .hidden { display: none !important; }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+
+  @media (max-width: 760px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .header, .panel, .composer, .disclaimer, .tabs { padding-left: 20px; padding-right: 20px; }
+    .header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="mark">
+      <svg width="28" height="28" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="15" cy="15" r="6.5" fill="#F2A93B"/>
+        <g stroke="#1B6B5A" stroke-width="2" stroke-linecap="round">
+          <line x1="15" y1="1" x2="15" y2="5.5"/><line x1="15" y1="24.5" x2="15" y2="29"/>
+          <line x1="1" y1="15" x2="5.5" y2="15"/><line x1="24.5" y1="15" x2="29" y2="15"/>
+          <line x1="5.5" y1="5.5" x2="8.7" y2="8.7"/><line x1="21.3" y1="21.3" x2="24.5" y2="24.5"/>
+          <line x1="24.5" y1="5.5" x2="21.3" y2="8.7"/><line x1="8.7" y1="21.3" x2="5.5" y2="24.5"/>
+        </g>
+      </svg>
+      <span class="mark-title">Roshni</span>
+    </div>
+    <p class="mark-sub" id="sidebarSub">A plain-language guide to renewable energy schemes in India.</p>
+
+    <div class="section-label" id="topicsLabel">What Roshni knows about</div>
+    <ul class="topic-list">
+      <li><button class="topic-btn" data-fill="What is PM Surya Ghar and how much subsidy can I get?">PM Surya Ghar <span class="topic-tag">rooftop solar</span></button></li>
+      <li><button class="topic-btn" data-fill="How does PM-KUSUM help farmers with solar pumps?">PM-KUSUM <span class="topic-tag">for farmers</span></button></li>
+      <li><button class="topic-btn" data-fill="How does net metering actually reduce my electricity bill?">Net Metering <span class="topic-tag">billing</span></button></li>
+      <li><button class="topic-btn" data-fill="Does solar really work on cloudy days or in winter?">Myths & FAQs <span class="topic-tag">common doubts</span></button></li>
+    </ul>
+
+    <div class="sidebar-note" id="sidebarNote">Roshni only answers from four loaded government sources. If something isn't covered, it says so instead of guessing.</div>
+  </aside>
+
+  <main class="main">
+    <div class="header">
+      <div class="header-text">
+        <h1 id="pageTitle">Your renewable energy plan, personalized</h1>
+        <p id="pageSub">Answer a few questions or ask anything — grounded in real Indian government schemes.</p>
+      </div>
+      <div class="lang-toggle">
+        <button id="langEn" class="active">English</button>
+        <button id="langHi">हिंदी</button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="tabPlanBtn">Get My Personalized Plan</button>
+      <button class="tab-btn" id="tabChatBtn">Ask Roshni Anything</button>
+    </div>
+
+    <div class="disclaimer" id="disclaimerText">This is an informational assistant, not an official government source. Always confirm final details on the National Portal or with your local DISCOM before applying.</div>
+
+    <!-- PLAN TAB -->
+    <div class="panel" id="planPanel">
+
+      <div id="quizContainer" class="quiz-card"></div>
+
+      <div id="planLoading" class="plan-loading hidden"></div>
+
+      <div id="planResult" class="plan-result hidden"></div>
+
+    </div>
+
+    <!-- CHAT TAB -->
+    <div class="panel hidden" id="chatPanel">
+      <div class="welcome" id="chatWelcome">
+        <h2 id="chatWelcomeTitle">Where should we start?</h2>
+        <p id="chatWelcomeBody">Pick a question below, click a topic on the left, or type your own.</p>
+        <div class="chips">
+          <button class="chip" data-fill="Am I eligible for the rooftop solar subsidy?">Am I eligible for the rooftop solar subsidy?</button>
+          <button class="chip" data-fill="How much money will I actually save with net metering?">How much money will I actually save with net metering?</button>
+          <button class="chip" data-fill="Can a small farmer afford a solar pump under PM-KUSUM?">Can a small farmer afford a solar pump under PM-KUSUM?</button>
+          <button class="chip" data-fill="Is solar panel maintenance expensive?">Is solar panel maintenance expensive?</button>
+        </div>
+      </div>
+      <div id="ledger"></div>
+    </div>
+
+    <div class="composer hidden" id="composer">
+      <input type="text" id="chatInput" placeholder="Ask about a scheme, subsidy, or how solar works…" autocomplete="off">
+      <button id="chatSend">Ask</button>
+    </div>
+  </main>
+
+</div>
+
+<script>
+/* =========================================================
+   KNOWLEDGE BASE
+   ========================================================= */
+const KNOWLEDGE_BASE = `
+SOURCE 1: PM Surya Ghar — Muft Bijli Yojana (Rooftop Solar for Households)
+Launched 13 February 2024 by the Government of India. Goal: 1 crore (10 million) households with rooftop solar by March 2027.
+Subsidy: Central subsidy paid via Direct Benefit Transfer (DBT) to the applicant's bank account. Amount is based on system size: ₹30,000 per kW for the first 2 kW, plus ₹18,000 for a 3rd kW, capped at ₹78,000 total for residential systems of 3kW or larger.
+Free electricity: Eligible households can receive up to 300 units of free electricity per month once the system is live and net-metered.
+Financing: Collateral-free loans of up to ₹2 lakh are available at a subsidized interest rate (around 6.75%) through 12 public sector banks.
+Eligibility basics: Applicant should be an Indian resident who owns the property (or has clear rights to install), have a valid electricity connection, and not have already availed a rooftop solar subsidy on the same property. Panels must be from the Approved List of Models and Manufacturers (ALMM).
+How to apply: Apply through the official National Portal for Rooftop Solar. The portal helps choose system size, provides a benefits calculator, and lists registered vendors. After document verification and installation, DISCOM inspection happens, followed by subsidy transfer — typically within 15–45 days after final request.
+Documents typically needed: Identity proof (Aadhaar), latest electricity bill/consumer number, proof of property ownership, and bank account details (passbook or cancelled cheque).
+Village-level component: A "Model Solar Village" is planned in each district to demonstrate rural adoption.
+SIZING REFERENCE (planning estimate only): As a rough rule of thumb used by installers in India, 1 kW of rooftop solar capacity generates approximately 120 units (kWh) per month, varying with location and sunlight hours. A household using around 300 units/month typically fits a 2–3 kW system. These are approximate planning figures, not guarantees.
+
+SOURCE 2: PM-KUSUM Yojana (Solar for Farmers)
+Full name: Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan. Launched by the Ministry of New and Renewable Energy (MNRE) in 2019 to help farmers shift from diesel-based irrigation to solar and create extra income opportunities.
+Component A: Farmers, cooperatives, panchayats, or FPOs can set up small decentralized grid-connected solar power plants (500 kW–2 MW) on their land — running it themselves or leasing land to a developer. Power generated can be sold to the local DISCOM at a pre-fixed tariff.
+Component B: Standalone (off-grid) solar irrigation pumps up to 7.5 HP for farmers without reliable grid access. Central Financial Assistance (CFA) covers about 30% of benchmark cost (up to 50% in northeastern/hill states and island territories); state governments typically add another 30%; the farmer pays the remainder, and can use bank financing so only about 10% is paid upfront.
+Component C: Solarizing existing grid-connected agricultural pumps, so farmers use solar power for irrigation and can sell surplus electricity back to the DISCOM.
+Typical cost example: A 7.5 HP solar pump generally costs ₹4.5–5 lakh before subsidy; after combined central and state subsidy, actual out-of-pocket cost is significantly lower and varies by state.
+Who benefits: Individual land-owning farmers, groups of farmers, cooperatives, panchayats, and water user associations.
+
+SOURCE 3: Net Metering Policy (Central Framework + State Variation)
+What it is: A billing mechanism letting a rooftop solar owner send surplus electricity generated during the day back into the grid, and draw electricity from the grid when panels aren't producing enough (e.g., at night). A bi-directional meter tracks both directions.
+How the bill is calculated: At the end of the billing cycle, the DISCOM nets what was imported from the grid against what was exported. The consumer is billed only for that net difference.
+Central rules: Under the Ministry of Power's Rights of Consumers Rules, net metering is generally available up to 500 kW or the sanctioned load (whichever lower); newer rules in various states apply net metering up to 10 kW for many residential consumers, with gross metering above that threshold.
+State variation: Implemented by State Electricity Regulatory Commissions (SERCs), so caps, approval timelines, and compensation rates differ by state (21+ states have issued their own regulations). Citizens should confirm exact terms with their local DISCOM.
+Why it matters: Net metering is what makes rooftop solar financially worthwhile — without it, a household could only use solar power at the exact moment it's generated.
+Common friction points: Grid instability in some regions, cost of the net meter itself (usually the consumer's responsibility), and inconsistent awareness among local utility staff.
+
+SOURCE 4: Myths, FAQs & Practical Concerns (Compiled Plain-Language Reference)
+"Does solar work in winter or on cloudy days?" — Yes, at reduced efficiency; panels still generate from diffused daylight.
+"Do I need to rewire my whole house?" — Usually no; a licensed installer adds the system alongside existing wiring and meter.
+"Is maintenance expensive?" — Generally low-cost: periodic panel cleaning and occasional inverter/wiring checks.
+"Can I go completely off-grid?" — Technically possible with batteries, but most Indian residential systems are grid-tied with net metering, which is cheaper. Off-grid matters more for remote farms without grid access (PM-KUSUM Component B).
+"Will solar definitely make my bill zero?" — Not automatically; depends on system size vs. consumption, local net metering rules, and day vs. night usage. It significantly reduces bills for most adopters, but "zero" isn't guaranteed.
+"Is this only for wealthy households?" — No; subsidies, DBT transfers, and collateral-free loans under PM Surya Ghar are designed to make solar accessible to middle-class and lower-income households too.
+`;
+
+/* =========================================================
+   UI STRINGS (English / Hindi)
+   ========================================================= */
+const STR = {
+  en: {
+    sidebarSub: "A plain-language guide to renewable energy schemes in India.",
+    topicsLabel: "What Roshni knows about",
+    sidebarNote: "Roshni only answers from four loaded government sources. If something isn't covered, it says so instead of guessing.",
+    pageTitle: "Your renewable energy plan, personalized",
+    pageSub: "Answer a few questions or ask anything — grounded in real Indian government schemes.",
+    tabPlan: "Get My Personalized Plan",
+    tabChat: "Ask Roshni Anything",
+    disclaimer: "This is an informational assistant, not an official government source. Always confirm final details on the National Portal or with your local DISCOM before applying.",
+    back: "Back", next: "Next", generate: "Generate My Plan", startOver: "Start Over",
+    download: "Download My Plan", askFollowUp: "Ask a Follow-up Question",
+    loadingPlan: "Reading through the schemes and working out what applies to you…",
+    chatWelcomeTitle: "Where should we start?",
+    chatWelcomeBody: "Pick a question below, click a topic on the left, or type your own.",
+    inputPlaceholder: "Ask about a scheme, subsidy, or how solar works…",
+    ask: "Ask",
+    you: "You asked", roshni: "Roshni", source: "Source",
+    sectionApplies: "Applies to You", sectionSupport: "Estimated Support", sectionSteps: "Your Next Steps", sectionSources: "Sources",
+    q_persona: "What best describes you?",
+    o_homeowner: "Homeowner looking at rooftop solar",
+    o_farmer: "Farmer looking at solar pumps or land",
+    q_state: "Which state do you live in?", ph_state: "e.g. Maharashtra",
+    q_bill: "What is your average monthly electricity bill (in ₹)?", ph_bill: "e.g. 2000",
+    q_roof: "Roughly how much sunlit roof space do you have?",
+    o_roof_s: "Small (under 300 sq ft)", o_roof_m: "Medium (300–600 sq ft)", o_roof_l: "Large (600+ sq ft)",
+    q_budget: "How do you want to cover the upfront cost?",
+    o_budget_full: "I can pay the full cost myself", o_budget_loan: "I'd like a collateral-free loan", o_budget_low: "I want the lowest possible upfront cost",
+    q_state_farm: "Which state is your farm in?",
+    q_grid: "Do you have grid electricity access at your farm?",
+    o_grid_yes: "Yes, grid connected", o_grid_no: "No, no reliable grid access",
+    q_land: "Roughly how many acres of land do you have?", ph_land: "e.g. 2",
+    q_sell: "Would you be interested in selling surplus solar power to the grid?",
+    o_sell_yes: "Yes", o_sell_no: "No, just for my own irrigation",
+    errorGeneric: "Something went wrong reaching the assistant. Please try again in a moment.",
+    langName: "English"
+  },
+  hi: {
+    sidebarSub: "भारत में नवीकरणीय ऊर्जा योजनाओं की सरल भाषा में जानकारी।",
+    topicsLabel: "रोशनी को किन विषयों की जानकारी है",
+    sidebarNote: "रोशनी केवल चार सरकारी स्रोतों के आधार पर जवाब देती है। अगर जानकारी उपलब्ध नहीं है, तो वह अनुमान लगाने के बजाय यह बता देगी।",
+    pageTitle: "आपकी अपनी नवीकरणीय ऊर्जा योजना",
+    pageSub: "कुछ सवालों के जवाब दें या कुछ भी पूछें — असली भारत सरकार की योजनाओं पर आधारित।",
+    tabPlan: "मेरी व्यक्तिगत योजना पाएं",
+    tabChat: "रोशनी से कुछ भी पूछें",
+    disclaimer: "यह एक जानकारी सहायक है, आधिकारिक सरकारी स्रोत नहीं। आवेदन करने से पहले नेशनल पोर्टल या अपने स्थानीय डिस्कॉम से पुष्टि ज़रूर करें।",
+    back: "पीछे", next: "आगे", generate: "मेरी योजना बनाएं", startOver: "फिर से शुरू करें",
+    download: "मेरी योजना डाउनलोड करें", askFollowUp: "एक और सवाल पूछें",
+    loadingPlan: "योजनाओं की जानकारी देखी जा रही है और आपके लिए क्या उपयुक्त है, यह तय किया जा रहा है…",
+    chatWelcomeTitle: "कहाँ से शुरू करें?",
+    chatWelcomeBody: "नीचे से कोई सवाल चुनें, बाईं ओर से कोई विषय चुनें, या अपना सवाल खुद लिखें।",
+    inputPlaceholder: "किसी योजना, सब्सिडी, या सोलर के बारे में पूछें…",
+    ask: "पूछें",
+    you: "आपने पूछा", roshni: "रोशनी", source: "स्रोत",
+    sectionApplies: "आपके लिए क्या लागू होता है", sectionSupport: "अनुमानित सहायता", sectionSteps: "आपके अगले कदम", sectionSources: "स्रोत",
+    q_persona: "आप कौन हैं?",
+    o_homeowner: "घर का मालिक (छत पर सोलर चाहते हैं)",
+    o_farmer: "किसान (सोलर पंप या ज़मीन के लिए)",
+    q_state: "आप किस राज्य में रहते हैं?", ph_state: "जैसे महाराष्ट्र",
+    q_bill: "आपका औसत मासिक बिजली बिल कितना है (₹ में)?", ph_bill: "जैसे 2000",
+    q_roof: "आपकी छत पर धूप वाली जगह कितनी है?",
+    o_roof_s: "छोटी (300 वर्ग फुट से कम)", o_roof_m: "मध्यम (300–600 वर्ग फुट)", o_roof_l: "बड़ी (600+ वर्ग फुट)",
+    q_budget: "आप शुरुआती खर्च कैसे उठाना चाहते हैं?",
+    o_budget_full: "मैं पूरा खर्च खुद उठा सकता/सकती हूँ", o_budget_loan: "मुझे बिना गारंटी वाला लोन चाहिए", o_budget_low: "मुझे सबसे कम शुरुआती खर्च चाहिए",
+    q_state_farm: "आपका खेत किस राज्य में है?",
+    q_grid: "क्या आपके खेत में बिजली ग्रिड की सुविधा है?",
+    o_grid_yes: "हाँ, ग्रिड से जुड़ा है", o_grid_no: "नहीं, ग्रिड की सुविधा नहीं है",
+    q_land: "आपके पास लगभग कितनी एकड़ ज़मीन है?", ph_land: "जैसे 2",
+    q_sell: "क्या आप अतिरिक्त सोलर बिजली ग्रिड को बेचना चाहेंगे?",
+    o_sell_yes: "हाँ", o_sell_no: "नहीं, सिर्फ अपनी सिंचाई के लिए",
+    errorGeneric: "सहायक तक पहुँचने में कुछ गड़बड़ हुई। कृपया थोड़ी देर बाद फिर से कोशिश करें।",
+    langName: "हिंदी"
+  }
+};
+
+let lang = 'en';
+function t(key) { return STR[lang][key]; }
+
+/* =========================================================
+   QUIZ DEFINITION
+   ========================================================= */
+function personaStep() {
+  return { key: 'persona', type: 'choice',
+    question: () => t('q_persona'),
+    options: () => [
+      { value: 'homeowner', label: t('o_homeowner') },
+      { value: 'farmer', label: t('o_farmer') }
+    ]};
+}
+function homeownerSteps() {
+  return [
+    { key: 'state', type: 'text', question: () => t('q_state'), placeholder: () => t('ph_state') },
+    { key: 'bill', type: 'number', question: () => t('q_bill'), placeholder: () => t('ph_bill') },
+    { key: 'roofSize', type: 'choice', question: () => t('q_roof'), options: () => [
+      { value: 'small', label: t('o_roof_s') }, { value: 'medium', label: t('o_roof_m') }, { value: 'large', label: t('o_roof_l') }
+    ]},
+    { key: 'budget', type: 'choice', question: () => t('q_budget'), options: () => [
+      { value: 'full', label: t('o_budget_full') }, { value: 'loan', label: t('o_budget_loan') }, { value: 'lowest', label: t('o_budget_low') }
+    ]}
+  ];
+}
+function farmerSteps() {
+  return [
+    { key: 'state', type: 'text', question: () => t('q_state_farm'), placeholder: () => t('ph_state') },
+    { key: 'gridAccess', type: 'choice', question: () => t('q_grid'), options: () => [
+      { value: 'grid', label: t('o_grid_yes') }, { value: 'offgrid', label: t('o_grid_no') }
+    ]},
+    { key: 'landSize', type: 'number', question: () => t('q_land'), placeholder: () => t('ph_land') },
+    { key: 'sellSurplus', type: 'choice', question: () => t('q_sell'), options: () => [
+      { value: 'yes', label: t('o_sell_yes') }, { value: 'no', label: t('o_sell_no') }
+    ]},
+    { key: 'budget', type: 'choice', question: () => t('q_budget'), options: () => [
+      { value: 'full', label: t('o_budget_full') }, { value: 'loan', label: t('o_budget_loan') }, { value: 'lowest', label: t('o_budget_low') }
+    ]}
+  ];
+}
+function currentSteps() {
+  if (answers.persona === 'farmer') return [personaStep(), ...farmerSteps()];
+  if (answers.persona === 'homeowner') return [personaStep(), ...homeownerSteps()];
+  return [personaStep()];
+}
+
+let stepIndex = 0;
+let answers = {};
+
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  const steps = currentSteps();
+  const step = steps[stepIndex];
+  const isLast = stepIndex === steps.length - 1;
+  const currentAnswer = answers[step.key];
+
+  let inputHtml = '';
+  if (step.type === 'text' || step.type === 'number') {
+    inputHtml = `<input class="quiz-input" type="${step.type === 'number' ? 'number' : 'text'}" id="quizInput" placeholder="${step.placeholder()}" value="${currentAnswer || ''}">`;
+  } else if (step.type === 'choice') {
+    inputHtml = `<div class="quiz-options">` + step.options().map(opt => `
+      <button class="quiz-option ${currentAnswer === opt.value ? 'selected' : ''}" data-value="${opt.value}">${opt.label}</button>
+    `).join('') + `</div>`;
+  }
+
+  container.innerHTML = `
+    <div class="quiz-progress">${stepIndex + 1} / ${steps.length}</div>
+    <div class="quiz-question">${step.question()}</div>
+    ${inputHtml}
+    <div class="quiz-nav">
+      <div>${stepIndex > 0 ? `<button class="btn-ghost" id="quizBack">${t('back')}</button>` : ''}</div>
+      <button class="btn-primary" id="quizNext" ${!currentAnswer ? 'disabled' : ''}>${isLast ? t('generate') : t('next')}</button>
+    </div>
+  `;
+
+  if (step.type === 'text' || step.type === 'number') {
+    const inputEl = document.getElementById('quizInput');
+    inputEl.addEventListener('input', () => {
+      answers[step.key] = inputEl.value;
+      document.getElementById('quizNext').disabled = !inputEl.value;
+    });
+  } else {
+    container.querySelectorAll('.quiz-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        answers[step.key] = btn.getAttribute('data-value');
+        renderQuiz();
+      });
+    });
+  }
+
+  const backBtn = document.getElementById('quizBack');
+  if (backBtn) backBtn.addEventListener('click', () => { stepIndex--; renderQuiz(); });
+
+  document.getElementById('quizNext').addEventListener('click', () => {
+    if (isLast) { generatePlan(); }
+    else { stepIndex++; renderQuiz(); }
+  });
+}
+
+function resetQuiz() {
+  stepIndex = 0; answers = {};
+  document.getElementById('quizContainer').classList.remove('hidden');
+  document.getElementById('planLoading').classList.add('hidden');
+  document.getElementById('planResult').classList.add('hidden');
+  renderQuiz();
+}
+
+/* =========================================================
+   API CALLS
+   ========================================================= */
+let conversation = [];
+
+function planSystemPrompt() {
+  const langName = t('langName');
+  return `You are Roshni, a renewable energy policy assistant for Indian citizens. You will receive a structured profile describing one citizen. Using ONLY the knowledge base below, work out which scheme(s) genuinely apply to them and generate a personalized plan.
+
+RULES:
+1. Use ONLY the knowledge base below. Never invent numbers, eligibility rules, or schemes not present in it.
+2. You may use the SIZING REFERENCE note in Source 1 to make rough, clearly-labeled estimates (e.g. suggested system size, approximate subsidy amount) based on the citizen's stated bill or land size. Always phrase these as approximate estimates, never guarantees.
+3. Never promise an exact rupee saving or a guaranteed eligibility outcome. Use ranges and words like "approximately" or "typically."
+4. Write entirely in ${langName}, in simple, plain language a non-technical person can follow. If ${langName} is Hindi, write fully in Hindi (Devanagari script), not transliterated English.
+5. Structure your ENTIRE response using exactly these four markers, each alone on its own line, in this exact order, written EXACTLY as shown (do not translate the markers themselves, only the content beneath them):
+[[APPLIES]]
+(content in ${langName} explaining which scheme(s) apply to this citizen and why)
+[[SUPPORT]]
+(content in ${langName}: approximate subsidy/support amount and, if relevant, a rough payback/savings range, clearly labeled as an estimate)
+[[STEPS]]
+(content in ${langName}: a short numbered list of next steps and documents needed, in order)
+[[SOURCES]]
+(content in ${langName}: name which of the four sources this plan drew from)
+6. Keep the whole response concise — a short paragraph or a few bullet points per section, not an essay.
+7. Remind the citizen, briefly, to confirm final details with the official National Portal or their local DISCOM.
+
+KNOWLEDGE BASE:
+${KNOWLEDGE_BASE}`;
+}
+
+function chatSystemPrompt() {
+  const langName = t('langName');
+  return `You are Roshni, a renewable energy policy explainer assistant for Indian citizens. Your only job is to help ordinary people understand renewable energy schemes, subsidies, and how solar adoption works, using ONLY the knowledge base provided below.
+
+RULES:
+1. Answer ONLY using information from the knowledge base below. Do not use outside knowledge.
+2. If the answer is not in the knowledge base, say clearly you don't have that information in your current sources and suggest checking the official National Portal or local DISCOM. Do not guess.
+3. Write in simple, plain language. Briefly explain any technical term (like "DISCOM") the first time you use it.
+4. Respond in ${langName}, unless the citizen's question is clearly written in a different language, in which case respond in that language instead.
+5. End every answer with a line starting with "${t('source')}:" naming which of the four sources (PM Surya Ghar, PM-KUSUM, Net Metering Policy, or Myths & FAQs) the answer came from.
+6. Never state or imply a guaranteed personal rupee saving — describe what the scheme provides, not a personal promise.
+7. You are not a government authority; encourage users to verify on the official portal or with their DISCOM.
+8. Keep answers concise — a few short paragraphs at most.
+
+KNOWLEDGE BASE:
+${KNOWLEDGE_BASE}`;
+}
+
+function profileSummary() {
+  const isFarmer = answers.persona === 'farmer';
+  let lines = [`Type: ${isFarmer ? 'Farmer' : 'Homeowner'}`, `State: ${answers.state || 'not specified'}`];
+  if (isFarmer) {
+    lines.push(`Grid access at farm: ${answers.gridAccess === 'grid' ? 'Yes, grid connected' : 'No reliable grid access'}`);
+    lines.push(`Approximate land size: ${answers.landSize || 'not specified'} acres`);
+    lines.push(`Interested in selling surplus power: ${answers.sellSurplus === 'yes' ? 'Yes' : 'No, own irrigation only'}`);
+  } else {
+    lines.push(`Average monthly electricity bill: ₹${answers.bill || 'not specified'}`);
+    lines.push(`Sunlit roof space: ${answers.roofSize}`);
+  }
+  const budgetMap = { full: 'Can pay full cost upfront', loan: 'Prefers a collateral-free loan', lowest: 'Wants lowest possible upfront cost' };
+  lines.push(`Budget preference: ${budgetMap[answers.budget] || 'not specified'}`);
+  return lines.join('\n');
+}
+
+async function callClaude(system, userMessage, historyForContext) {
+  const messages = [...historyForContext, { role: 'user', content: userMessage }];
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 1000, system, messages })
+  });
+  const data = await response.json();
+  let text = "";
+  if (data.content) text = data.content.map(b => b.type === 'text' ? b.text : '').join('\n').trim();
+  return text || null;
+}
+
+function parsePlan(text) {
+  const markers = ['[[APPLIES]]', '[[SUPPORT]]', '[[STEPS]]', '[[SOURCES]]'];
+  const positions = markers.map(m => text.indexOf(m)).map(i => i === -1 ? text.length : i);
+  const parts = {};
+  for (let i = 0; i < markers.length; i++) {
+    if (positions[i] === text.length) { parts[markers[i]] = ''; continue; }
+    const start = positions[i] + markers[i].length;
+    const end = i + 1 < markers.length ? positions[i + 1] : text.length;
+    parts[markers[i]] = text.slice(start, end).trim();
+  }
+  return parts;
+}
+
+let lastPlanRaw = '';
+
+async function generatePlan() {
+  document.getElementById('quizContainer').classList.add('hidden');
+  document.getElementById('planLoading').textContent = t('loadingPlan');
+  document.getElementById('planLoading').classList.remove('hidden');
+
+  const userMessage = `Citizen profile:\n${profileSummary()}\n\nPlease generate the personalized plan following the required format.`;
+  conversation = [];
+
+  const text = await callClaude(planSystemPrompt(), userMessage, []);
+  document.getElementById('planLoading').classList.add('hidden');
+
+  if (!text) {
+    document.getElementById('planLoading').classList.remove('hidden');
+    document.getElementById('planLoading').textContent = t('errorGeneric');
+    return;
+  }
+
+  lastPlanRaw = text;
+  conversation.push({ role: 'user', content: userMessage }, { role: 'assistant', content: text });
+
+  const parts = parsePlan(text);
+  const resultEl = document.getElementById('planResult');
+  resultEl.classList.remove('hidden');
+  resultEl.innerHTML = `
+    <div class="plan-section applies"><h3>${t('sectionApplies')}</h3><div class="body">${escapeHtml(parts['[[APPLIES]]'] || '')}</div></div>
+    <div class="plan-section support"><h3>${t('sectionSupport')}</h3><div class="body">${escapeHtml(parts['[[SUPPORT]]'] || '')}</div></div>
+    <div class="plan-section steps"><h3>${t('sectionSteps')}</h3><div class="body">${escapeHtml(parts['[[STEPS]]'] || '')}</div></div>
+    <div class="plan-section sources"><h3>${t('sectionSources')}</h3><div class="body">${escapeHtml(parts['[[SOURCES]]'] || '')}</div></div>
+    <div class="plan-actions">
+      <button class="btn-ghost" id="startOverBtn">${t('startOver')}</button>
+      <button class="btn-ghost" id="downloadBtn">${t('download')}</button>
+      <button class="btn-primary" id="followUpBtn">${t('askFollowUp')}</button>
+    </div>
+  `;
+  document.getElementById('startOverBtn').addEventListener('click', resetQuiz);
+  document.getElementById('downloadBtn').addEventListener('click', downloadPlan);
+  document.getElementById('followUpBtn').addEventListener('click', () => switchTab('chat'));
+}
+
+function downloadPlan() {
+  const parts = parsePlan(lastPlanRaw);
+  const content = `ROSHNI — ${t('pageTitle')}\n\n${t('sectionApplies')}\n${parts['[[APPLIES]]']}\n\n${t('sectionSupport')}\n${parts['[[SUPPORT]]']}\n\n${t('sectionSteps')}\n${parts['[[STEPS]]']}\n\n${t('sectionSources')}\n${parts['[[SOURCES]]']}\n`;
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'my-renewable-energy-plan.txt';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* =========================================================
+   CHAT
+   ========================================================= */
+const ledger = document.getElementById('ledger');
+let welcomeCleared = false;
+
+function clearWelcome() {
+  if (!welcomeCleared) { document.getElementById('chatWelcome').classList.add('hidden'); welcomeCleared = true; }
+}
+
+function renderChatEntry(question) {
+  clearWelcome();
+  const entry = document.createElement('div');
+  entry.className = 'entry';
+  entry.innerHTML = `
+    <div class="who">${t('you')}</div>
+    <div class="q-text">${escapeHtml(question)}</div>
+    <div class="a-block loading">
+      <div class="who">${t('roshni')}</div>
+      <div class="a-text">…</div>
+    </div>
+  `;
+  ledger.appendChild(entry);
+  ledger.scrollTop = ledger.scrollHeight;
+  return entry;
+}
+
+function splitSource(text) {
+  const match = text.match(new RegExp(`\\n?${t('source')}:\\s*(.+)$`, 'i'));
+  if (match) return { body: text.slice(0, match.index).trim(), source: match[1].trim() };
+  return { body: text.trim(), source: null };
+}
+
+async function askRoshni(question) {
+  const entry = renderChatEntry(question);
+  document.getElementById('chatInput').value = '';
+  document.getElementById('chatSend').disabled = true;
+
+  const text = await callClaude(chatSystemPrompt(), question, conversation);
+  const aBlock = entry.querySelector('.a-block');
+  aBlock.classList.remove('loading');
+
+  if (!text) {
+    aBlock.innerHTML = `<div class="who">${t('roshni')}</div><div class="a-text">${t('errorGeneric')}</div>`;
+  } else {
+    conversation.push({ role: 'user', content: question }, { role: 'assistant', content: text });
+    const { body, source } = splitSource(text);
+    aBlock.innerHTML = `
+      <div class="who">${t('roshni')}</div>
+      <div class="a-text">${escapeHtml(body)}</div>
+      ${source ? `<div class="a-source">${t('source')}: ${escapeHtml(source)}</div>` : ''}
+    `;
+  }
+  document.getElementById('chatSend').disabled = false;
+  ledger.scrollTop = ledger.scrollHeight;
+}
+
+document.getElementById('chatSend').addEventListener('click', () => {
+  const q = document.getElementById('chatInput').value.trim();
+  if (q) askRoshni(q);
+});
+document.getElementById('chatInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { const q = e.target.value.trim(); if (q) askRoshni(q); }
+});
+document.querySelectorAll('[data-fill]').forEach(el => {
+  el.addEventListener('click', () => { switchTab('chat'); askRoshni(el.getAttribute('data-fill')); });
+});
+
+/* =========================================================
+   TABS + LANGUAGE
+   ========================================================= */
+function switchTab(tab) {
+  document.getElementById('tabPlanBtn').classList.toggle('active', tab === 'plan');
+  document.getElementById('tabChatBtn').classList.toggle('active', tab === 'chat');
+  document.getElementById('planPanel').classList.toggle('hidden', tab !== 'plan');
+  document.getElementById('chatPanel').classList.toggle('hidden', tab !== 'chat');
+  document.getElementById('composer').classList.toggle('hidden', tab !== 'chat');
+}
+document.getElementById('tabPlanBtn').addEventListener('click', () => switchTab('plan'));
+document.getElementById('tabChatBtn').addEventListener('click', () => switchTab('chat'));
+
+function applyLanguage() {
+  document.body.classList.toggle('lang-hi', lang === 'hi');
+  document.getElementById('langEn').classList.toggle('active', lang === 'en');
+  document.getElementById('langHi').classList.toggle('active', lang === 'hi');
+
+  document.getElementById('sidebarSub').textContent = t('sidebarSub');
+  document.getElementById('topicsLabel').textContent = t('topicsLabel');
+  document.getElementById('sidebarNote').textContent = t('sidebarNote');
+  document.getElementById('pageTitle').textContent = t('pageTitle');
+  document.getElementById('pageSub').textContent = t('pageSub');
+  document.getElementById('tabPlanBtn').textContent = t('tabPlan');
+  document.getElementById('tabChatBtn').textContent = t('tabChat');
+  document.getElementById('disclaimerText').textContent = t('disclaimer');
+  document.getElementById('chatWelcomeTitle').textContent = t('chatWelcomeTitle');
+  document.getElementById('chatWelcomeBody').textContent = t('chatWelcomeBody');
+  document.getElementById('chatInput').placeholder = t('inputPlaceholder');
+  document.getElementById('chatSend').textContent = t('ask');
+
+  resetQuiz();
+}
+document.getElementById('langEn').addEventListener('click', () => { lang = 'en'; applyLanguage(); });
+document.getElementById('langHi').addEventListener('click', () => { lang = 'hi'; applyLanguage(); });
+
+/* =========================================================
+   INIT
+   ========================================================= */
+renderQuiz();
+</script>
+</body>
+</html>
