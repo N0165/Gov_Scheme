@@ -188,12 +188,6 @@ Vanilla JavaScript
 
 Embedded renewable-energy knowledge base
 
-Client-side fallback logic
-
-Anthropic API integration
-
-Frontend
-
 The interface uses:
 
 Semantic HTML structure
@@ -208,23 +202,6 @@ Google Fonts
 
 Vanilla JavaScript for interactions
 
-The design uses a warm paper-style background with teal, marigold, and brick accent colors.
-
-AI Integration
-
-The application contains a callClaude() function that sends requests to the Anthropic Messages API using the model specified in the source:
-
-claude-sonnet-4-6
-
-The AI is instructed to answer using only the application's embedded knowledge base.
-
-The plan and chat prompts explicitly tell the model not to invent schemes, eligibility rules, or numbers that are not present in the knowledge base.
-
-Fallback Mode
-
-Roshni has client-side fallback behavior when the AI request does not return a usable response.
-
-Personalized-plan fallback
 
 The fallback calculates a rough rooftop-solar estimate using:
 
@@ -328,16 +305,7 @@ python -m http.server 8000
 Then open:
 
 http://localhost:8000
-
-API Configuration
-
-The current implementation makes a browser-side request to:
-
-https://api.anthropic.com/v1/messages
-
-The source currently contains the API request logic directly in the HTML/JavaScript.
-
-For a production deployment, the API integration should be moved behind a backend/server-side endpoint so that sensitive credentials are not exposed in client-side code.
+.
 
 A recommended production architecture would be:
 
