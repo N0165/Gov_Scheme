@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roshni — Renewable Energy Policy Explainer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #F5F4EC;
@@ -31,9 +31,15 @@
   }
 
   body.lang-hi { font-family: 'Noto Sans Devanagari', 'Work Sans', sans-serif; }
+  body.lang-ta { font-family: 'Noto Sans Tamil', 'Work Sans', sans-serif; }
+  body.lang-pa { font-family: 'Noto Sans Gurmukhi', 'Work Sans', sans-serif; }
+  body.lang-gu { font-family: 'Noto Sans Gujarati', 'Work Sans', sans-serif; }
 
   h1, h2, h3, .display { font-family: 'Fraunces', serif; font-weight: 600; margin: 0; }
   body.lang-hi h1, body.lang-hi h2, body.lang-hi h3 { font-family: 'Noto Sans Devanagari', serif; }
+  body.lang-ta h1, body.lang-ta h2, body.lang-ta h3 { font-family: 'Noto Sans Tamil', serif; }
+  body.lang-pa h1, body.lang-pa h2, body.lang-pa h3 { font-family: 'Noto Sans Gurmukhi', serif; }
+  body.lang-gu h1, body.lang-gu h2, body.lang-gu h3 { font-family: 'Noto Sans Gujarati', serif; }
 
   .app {
     display: grid; grid-template-columns: 250px 1fr; height: 100vh;
@@ -79,14 +85,13 @@
   .header p { margin: 6px 0 0 0; font-size: 14px; color: var(--ink-soft); max-width: 58ch; }
 
   .lang-toggle {
-    display: flex; border: 1px solid var(--line); border-radius: 3px; overflow: hidden;
-    flex-shrink: 0; margin-top: 2px;
+    display: flex; flex-wrap: wrap; gap: 4px; flex-shrink: 0; margin-top: 2px; max-width: 260px;
   }
   .lang-toggle button {
-    font-family: inherit; font-size: 13px; padding: 7px 14px; border: none; background: var(--paper);
-    color: var(--ink-soft); cursor: pointer;
+    font-family: inherit; font-size: 12.5px; padding: 6px 11px; border: 1px solid var(--line); border-radius: 3px;
+    background: var(--paper); color: var(--ink-soft); cursor: pointer;
   }
-  .lang-toggle button.active { background: var(--teal); color: #fff; }
+  .lang-toggle button.active { background: var(--teal); border-color: var(--teal); color: #fff; }
 
   .tabs { display: flex; gap: 4px; padding: 0 40px; border-bottom: 1px solid var(--line); background: var(--paper-raised); }
   .tab-btn {
@@ -218,9 +223,10 @@
       <li><button class="topic-btn" data-fill="How does PM-KUSUM help farmers with solar pumps?">PM-KUSUM <span class="topic-tag">for farmers</span></button></li>
       <li><button class="topic-btn" data-fill="How does net metering actually reduce my electricity bill?">Net Metering <span class="topic-tag">billing</span></button></li>
       <li><button class="topic-btn" data-fill="Does solar really work on cloudy days or in winter?">Myths & FAQs <span class="topic-tag">common doubts</span></button></li>
+      <li><button class="topic-btn" data-fill="How do I avoid getting my application rejected or scammed?">Avoiding Fraud <span class="topic-tag">stay safe</span></button></li>
     </ul>
 
-    <div class="sidebar-note" id="sidebarNote">Roshni only answers from four loaded government sources. If something isn't covered, it says so instead of guessing.</div>
+    <div class="sidebar-note" id="sidebarNote">Roshni only answers from five loaded government sources. If something isn't covered, it says so instead of guessing.</div>
   </aside>
 
   <main class="main">
@@ -232,6 +238,9 @@
       <div class="lang-toggle">
         <button id="langEn" class="active">English</button>
         <button id="langHi">हिंदी</button>
+        <button id="langTa">தமிழ்</button>
+        <button id="langPa">ਪੰਜਾਬੀ</button>
+        <button id="langGu">ગુજરાતી</button>
       </div>
     </div>
 
@@ -315,7 +324,15 @@ SOURCE 4: Myths, FAQs & Practical Concerns (Compiled Plain-Language Reference)
 "Can I go completely off-grid?" — Technically possible with batteries, but most Indian residential systems are grid-tied with net metering, which is cheaper. Off-grid matters more for remote farms without grid access (PM-KUSUM Component B).
 "Will solar definitely make my bill zero?" — Not automatically; depends on system size vs. consumption, local net metering rules, and day vs. night usage. It significantly reduces bills for most adopters, but "zero" isn't guaranteed.
 "Is this only for wealthy households?" — No; subsidies, DBT transfers, and collateral-free loans under PM Surya Ghar are designed to make solar accessible to middle-class and lower-income households too.
+
+SOURCE 5: Avoiding Rejections & Fraud (Compiled Practical Guidance)
+Common reasons applications get rejected: mismatched or incomplete documents (name/address not matching across Aadhaar, electricity bill, and property papers); installing panels not on the ALMM (Approved List of Models and Manufacturers) list; applying for a property without clear ownership proof; incorrect bank account details causing failed DBT transfer; and applying through an unregistered vendor not listed on the National Portal.
+How to reduce rejection risk: double-check that your name and address match exactly across all submitted documents before applying; confirm your chosen vendor and panel model appear on the official ALMM list; apply only through the official National Portal for Rooftop Solar, not through a third party's private website.
+Fraud warning signs: the government does NOT ask for any advance payment before your subsidy is approved and transferred via DBT — be cautious of anyone asking for upfront cash "to process your subsidy." Be wary of agents who ask for your Aadhaar, bank details, or original property documents outside the official portal, or who pressure you to sign something you haven't read. Always verify a vendor's registration on the National Portal directly rather than trusting a phone call or unsolicited visit.
+If in doubt: contact your local DISCOM office directly or use the helpline listed on the official National Portal for Rooftop Solar to verify any scheme communication before acting on it.
 `;
+
+const LAST_VERIFIED = "September 2026";
 
 /* =========================================================
    UI STRINGS (English / Hindi)
@@ -324,7 +341,8 @@ const STR = {
   en: {
     sidebarSub: "A plain-language guide to renewable energy schemes in India.",
     topicsLabel: "What Roshni knows about",
-    sidebarNote: "Roshni only answers from four loaded government sources. If something isn't covered, it says so instead of guessing.",
+    sidebarNote: "Roshni only answers from five loaded government sources. If something isn't covered, it says so instead of guessing.",
+    lastVerified: "Sources last checked",
     pageTitle: "Your renewable energy plan, personalized",
     pageSub: "Answer a few questions or ask anything — grounded in real Indian government schemes.",
     tabPlan: "Get My Personalized Plan",
@@ -355,12 +373,31 @@ const STR = {
     q_sell: "Would you be interested in selling surplus solar power to the grid?",
     o_sell_yes: "Yes", o_sell_no: "No, just for my own irrigation",
     errorGeneric: "Something went wrong reaching the assistant. Please try again in a moment.",
+    fb_ho_applies: "Based on your details, the PM Surya Ghar rooftop solar scheme applies to you.",
+    fb_ho_support: "Estimated suitable system size: approximately {size} kW. Estimated central subsidy: approximately ₹{subsidy} (via Direct Benefit Transfer). Estimated monthly savings: approximately ₹{savings}. Estimated payback period: approximately {years} years. These are rough planning estimates, not guarantees.",
+    fb_ho_loan_note: " Since you'd prefer a loan, a collateral-free loan of up to ₹2 lakh is available at around 6.75% interest through 12 public sector banks.",
+    fb_ho_steps: "1. Confirm your electricity connection details and gather Aadhaar, latest electricity bill, and property ownership proof.\n2. Apply through the official National Portal for Rooftop Solar and choose a vendor from the registered list.\n3. Ensure your chosen panels are on the ALMM (Approved List of Models and Manufacturers).\n4. After installation and DISCOM inspection, the subsidy is transferred to your bank account, typically within 15–45 days.\n5. Double-check your name and address match exactly across all documents to avoid rejection — the government never asks for advance payment to release a subsidy.",
+    fb_sources_ho: "PM Surya Ghar — Muft Bijli Yojana; Avoiding Rejections & Fraud",
+    fb_fm_offgrid_applies: "Based on your details, PM-KUSUM Component B (standalone solar irrigation pump) applies to you.",
+    fb_fm_offgrid_support: "A typical 7.5 HP solar pump costs approximately ₹4.5–5 lakh before subsidy. Central assistance covers about 30% of this cost, and your state government typically adds another 30%. With bank financing, your upfront share can be as low as approximately 10% of the total cost. These are approximate figures — actual subsidy shares vary by state.",
+    fb_fm_offgrid_steps: "1. Contact your state nodal agency for PM-KUSUM to check current subsidy rates in your state.\n2. Gather land ownership documents and identity proof.\n3. Apply through your state's PM-KUSUM portal or nodal agency.\n4. Choose a registered vendor for pump installation.\n5. Verify all costs and subsidy shares in writing before paying anything upfront — the government never asks for advance payment to release a subsidy.",
+    fb_sources_fm_offgrid: "PM-KUSUM (Component B); Avoiding Rejections & Fraud",
+    fb_fm_gridA_applies: "Based on your details, PM-KUSUM Component A (setting up a small solar power plant on your land to sell power) may be worth exploring.",
+    fb_fm_gridA_support: "Component A allows farmers, cooperatives, or FPOs to set up decentralized solar plants (500 kW–2 MW) and sell power to the local DISCOM at a fixed tariff. Exact costs and tariffs depend on your state's implementing agency, so this plan can't give a specific number — check with your state nodal agency for current rates.",
+    fb_sources_fm_gridA: "PM-KUSUM (Component A)",
+    fb_fm_gridC_applies: "Based on your details, PM-KUSUM Component C (solarizing your existing grid-connected pump) may be worth exploring.",
+    fb_fm_gridC_support: "Component C lets you power your existing agricultural pump with solar energy and sell surplus electricity back to the DISCOM. Exact subsidy shares and costs vary by state — check with your state nodal agency for current rates.",
+    fb_sources_fm_gridC: "PM-KUSUM (Component C)",
+    fb_fm_grid_steps: "1. Contact your state nodal agency for PM-KUSUM to check which component and subsidy rate applies in your state.\n2. Gather land and pump ownership documents.\n3. Apply through your state's PM-KUSUM portal.\n4. Verify all costs and subsidy shares in writing before paying anything upfront — the government never asks for advance payment to release a subsidy.",
+    fb_local_estimate_tag: " (local estimate — live AI temporarily unavailable)",
+    fb_offline_note: "Live AI is temporarily unavailable, so here is the most relevant information directly from Roshni's sources:",
     langName: "English"
   },
   hi: {
     sidebarSub: "भारत में नवीकरणीय ऊर्जा योजनाओं की सरल भाषा में जानकारी।",
     topicsLabel: "रोशनी को किन विषयों की जानकारी है",
-    sidebarNote: "रोशनी केवल चार सरकारी स्रोतों के आधार पर जवाब देती है। अगर जानकारी उपलब्ध नहीं है, तो वह अनुमान लगाने के बजाय यह बता देगी।",
+    sidebarNote: "रोशनी केवल पाँच सरकारी स्रोतों के आधार पर जवाब देती है। अगर जानकारी उपलब्ध नहीं है, तो वह अनुमान लगाने के बजाय यह बता देगी।",
+    lastVerified: "स्रोत आख़िरी बार जाँचे गए",
     pageTitle: "आपकी अपनी नवीकरणीय ऊर्जा योजना",
     pageSub: "कुछ सवालों के जवाब दें या कुछ भी पूछें — असली भारत सरकार की योजनाओं पर आधारित।",
     tabPlan: "मेरी व्यक्तिगत योजना पाएं",
@@ -391,7 +428,187 @@ const STR = {
     q_sell: "क्या आप अतिरिक्त सोलर बिजली ग्रिड को बेचना चाहेंगे?",
     o_sell_yes: "हाँ", o_sell_no: "नहीं, सिर्फ अपनी सिंचाई के लिए",
     errorGeneric: "सहायक तक पहुँचने में कुछ गड़बड़ हुई। कृपया थोड़ी देर बाद फिर से कोशिश करें।",
+    fb_ho_applies: "आपकी जानकारी के अनुसार, पीएम सूर्य घर रूफटॉप सोलर योजना आप पर लागू होती है।",
+    fb_ho_support: "अनुमानित उपयुक्त सिस्टम आकार: लगभग {size} kW। अनुमानित केंद्रीय सब्सिडी: लगभग ₹{subsidy} (डायरेक्ट बेनिफिट ट्रांसफर के ज़रिए)। अनुमानित मासिक बचत: लगभग ₹{savings}। अनुमानित पेबैक अवधि: लगभग {years} साल। ये अनुमानित आंकड़े हैं, गारंटी नहीं।",
+    fb_ho_loan_note: " चूंकि आप लोन पसंद करते हैं, 12 सार्वजनिक क्षेत्र के बैंकों के ज़रिए लगभग 6.75% ब्याज दर पर ₹2 लाख तक का बिना गारंटी वाला लोन उपलब्ध है।",
+    fb_ho_steps: "1. अपने बिजली कनेक्शन की जानकारी की पुष्टि करें और आधार, हालिया बिजली बिल, और संपत्ति स्वामित्व प्रमाण इकट्ठा करें।\n2. रूफटॉप सोलर के लिए आधिकारिक नेशनल पोर्टल के ज़रिए आवेदन करें और पंजीकृत सूची में से एक वेंडर चुनें।\n3. सुनिश्चित करें कि आपके चुने गए पैनल ALMM सूची में हैं।\n4. इंस्टॉलेशन और डिस्कॉम निरीक्षण के बाद, सब्सिडी आमतौर पर 15–45 दिनों के भीतर आपके बैंक खाते में ट्रांसफर हो जाती है।\n5. सुनिश्चित करें कि सभी दस्तावेज़ों में आपका नाम और पता बिल्कुल मेल खाता हो — सरकार सब्सिडी जारी करने के लिए कभी अग्रिम भुगतान नहीं मांगती।",
+    fb_sources_ho: "पीएम सूर्य घर — मुफ्त बिजली योजना; धोखाधड़ी और अस्वीकृति से बचाव",
+    fb_fm_offgrid_applies: "आपकी जानकारी के अनुसार, पीएम-कुसुम घटक B (स्टैंडअलोन सोलर सिंचाई पंप) आप पर लागू होता है।",
+    fb_fm_offgrid_support: "एक सामान्य 7.5 HP सोलर पंप की लागत सब्सिडी से पहले लगभग ₹4.5–5 लाख होती है। केंद्रीय सहायता इस लागत का लगभग 30% कवर करती है, और आपकी राज्य सरकार आमतौर पर और 30% जोड़ती है। बैंक फाइनेंसिंग के साथ, आपका शुरुआती हिस्सा कुल लागत का लगभग 10% जितना कम हो सकता है। ये अनुमानित आंकड़े हैं — वास्तविक सब्सिडी हिस्सा राज्य के अनुसार अलग हो सकता है।",
+    fb_fm_offgrid_steps: "1. अपने राज्य में मौजूदा सब्सिडी दरें जानने के लिए पीएम-कुसुम की राज्य नोडल एजेंसी से संपर्क करें।\n2. भूमि स्वामित्व दस्तावेज़ और पहचान प्रमाण इकट्ठा करें।\n3. अपने राज्य के पीएम-कुसुम पोर्टल या नोडल एजेंसी के ज़रिए आवेदन करें।\n4. पंप इंस्टॉलेशन के लिए एक पंजीकृत वेंडर चुनें।\n5. कोई भी अग्रिम भुगतान करने से पहले सभी लागत और सब्सिडी हिस्सों को लिखित में सत्यापित करें — सरकार सब्सिडी जारी करने के लिए कभी अग्रिम भुगतान नहीं मांगती।",
+    fb_sources_fm_offgrid: "पीएम-कुसुम (घटक B); धोखाधड़ी और अस्वीकृति से बचाव",
+    fb_fm_gridA_applies: "आपकी जानकारी के अनुसार, पीएम-कुसुम घटक A (अपनी ज़मीन पर छोटा सोलर पावर प्लांट लगाकर बिजली बेचना) पर विचार किया जा सकता है।",
+    fb_fm_gridA_support: "घटक A किसानों, सहकारी समितियों, या FPO को अपनी ज़मीन पर विकेंद्रीकृत सोलर प्लांट (500 kW–2 MW) लगाने और स्थानीय डिस्कॉम को तय दर पर बिजली बेचने की अनुमति देता है। सटीक लागत और दरें आपके राज्य की कार्यान्वयन एजेंसी पर निर्भर करती हैं, इसलिए यह योजना कोई विशेष आंकड़ा नहीं दे सकती — मौजूदा दरों के लिए अपने राज्य की नोडल एजेंसी से जांच करें।",
+    fb_sources_fm_gridA: "पीएम-कुसुम (घटक A)",
+    fb_fm_gridC_applies: "आपकी जानकारी के अनुसार, पीएम-कुसुम घटक C (आपके मौजूदा ग्रिड से जुड़े पंप को सोलर बनाना) पर विचार किया जा सकता है।",
+    fb_fm_gridC_support: "घटक C आपको अपने मौजूदा कृषि पंप को सोलर ऊर्जा से चलाने और अतिरिक्त बिजली डिस्कॉम को वापस बेचने की सुविधा देता है। सटीक सब्सिडी हिस्से और लागत राज्य के अनुसार अलग होती हैं — मौजूदा दरों के लिए अपने राज्य की नोडल एजेंसी से जांच करें।",
+    fb_sources_fm_gridC: "पीएम-कुसुम (घटक C)",
+    fb_fm_grid_steps: "1. अपने राज्य में कौन सा घटक और सब्सिडी दर लागू होती है, यह जानने के लिए पीएम-कुसुम की राज्य नोडल एजेंसी से संपर्क करें।\n2. भूमि और पंप स्वामित्व दस्तावेज़ इकट्ठा करें।\n3. अपने राज्य के पीएम-कुसुम पोर्टल के ज़रिए आवेदन करें।\n4. कोई भी अग्रिम भुगतान करने से पहले सभी लागत और सब्सिडी हिस्सों को लिखित में सत्यापित करें — सरकार सब्सिडी जारी करने के लिए कभी अग्रिम भुगतान नहीं मांगती।",
+    fb_local_estimate_tag: " (स्थानीय अनुमान — लाइव एआई अस्थायी रूप से अनुपलब्ध)",
+    fb_offline_note: "लाइव एआई अस्थायी रूप से अनुपलब्ध है, इसलिए यहाँ रोशनी के स्रोतों से सबसे प्रासंगिक जानकारी दी गई है:",
     langName: "हिंदी"
+  },
+  ta: {
+    sidebarSub: "இந்தியாவில் புதுப்பிக்கத்தக்க எரிசக்தி திட்டங்கள் பற்றிய எளிய மொழி வழிகாட்டி.",
+    topicsLabel: "ரோஷினிக்குத் தெரிந்த தலைப்புகள்",
+    sidebarNote: "ரோஷினி ஐந்து அரசு ஆதாரங்களை மட்டுமே அடிப்படையாகக் கொண்டு பதிலளிக்கிறது. தகவல் இல்லையென்றால், யூகிக்காமல் அதைத் தெளிவாகக் கூறும்.",
+    lastVerified: "ஆதாரங்கள் கடைசியாக சரிபார்க்கப்பட்டது",
+    pageTitle: "உங்களுக்கான தனிப்பயன் புதுப்பிக்கத்தக்க எரிசக்தி திட்டம்",
+    pageSub: "சில கேள்விகளுக்கு பதிலளியுங்கள் அல்லது எதுவும் கேளுங்கள் — உண்மையான இந்திய அரசு திட்டங்களை அடிப்படையாகக் கொண்டது.",
+    tabPlan: "எனது தனிப்பயன் திட்டத்தைப் பெறுங்கள்",
+    tabChat: "ரோஷினியிடம் எதுவும் கேளுங்கள்",
+    disclaimer: "இது ஒரு தகவல் உதவியாளர், அதிகாரப்பூர்வ அரசு ஆதாரம் அல்ல. விண்ணப்பிக்கும் முன் தேசிய போர்ட்டல் அல்லது உங்கள் உள்ளூர் DISCOM-இல் இறுதி விவரங்களை உறுதிப்படுத்திக் கொள்ளுங்கள்.",
+    back: "பின்செல்", next: "அடுத்து", generate: "எனது திட்டத்தை உருவாக்கு", startOver: "மீண்டும் தொடங்கு",
+    download: "எனது திட்டத்தைப் பதிவிறக்கு", askFollowUp: "மேலும் ஒரு கேள்வி கேளுங்கள்",
+    loadingPlan: "திட்டங்களைப் பார்வையிட்டு, உங்களுக்கு எது பொருந்தும் என்று கண்டறிகிறோம்…",
+    chatWelcomeTitle: "எங்கிருந்து தொடங்கலாம்?",
+    chatWelcomeBody: "கீழே உள்ள ஒரு கேள்வியைத் தேர்ந்தெடுக்கவும், இடதுபுறத்தில் ஒரு தலைப்பைக் கிளிக் செய்யவும், அல்லது உங்கள் சொந்தக் கேள்வியை தட்டச்சு செய்யவும்.",
+    inputPlaceholder: "ஒரு திட்டம், மானியம், அல்லது சோலார் எப்படி செயல்படுகிறது என்பது பற்றி கேளுங்கள்…",
+    ask: "கேள்", you: "நீங்கள் கேட்டது", roshni: "ரோஷினி", source: "ஆதாரம்",
+    sectionApplies: "உங்களுக்குப் பொருந்துவது", sectionSupport: "மதிப்பிடப்பட்ட உதவி", sectionSteps: "உங்கள் அடுத்த படிகள்", sectionSources: "ஆதாரங்கள்",
+    q_persona: "உங்களை எது சிறப்பாக விவரிக்கிறது?",
+    o_homeowner: "கூரையில் சோலார் வைக்க விரும்பும் வீட்டு உரிமையாளர்",
+    o_farmer: "சோலார் பம்ப் அல்லது நிலத்திற்காக விரும்பும் விவசாயி",
+    q_state: "நீங்கள் எந்த மாநிலத்தில் வசிக்கிறீர்கள்?", ph_state: "எ.கா. தமிழ்நாடு",
+    q_bill: "உங்கள் சராசரி மாத மின்சார பில் எவ்வளவு (₹ இல்)?", ph_bill: "எ.கா. 2000",
+    q_roof: "உங்கள் கூரையில் வெயில் படும் இடம் எவ்வளவு?",
+    o_roof_s: "சிறியது (300 சதுர அடிக்கும் குறைவு)", o_roof_m: "நடுத்தரம் (300–600 சதுர அடி)", o_roof_l: "பெரியது (600+ சதுர அடி)",
+    q_budget: "தொடக்க செலவை எப்படி ஈடுசெய்ய விரும்புகிறீர்கள்?",
+    o_budget_full: "நான் முழு செலவையும் சொந்தமாகச் செலுத்த முடியும்", o_budget_loan: "எனக்கு உத்தரவாதம் இல்லாத கடன் வேண்டும்", o_budget_low: "எனக்கு மிகக் குறைந்த தொடக்க செலவு வேண்டும்",
+    q_state_farm: "உங்கள் விவசாய நிலம் எந்த மாநிலத்தில் உள்ளது?",
+    q_grid: "உங்கள் வயலில் மின் கிரிட் இணைப்பு உள்ளதா?",
+    o_grid_yes: "ஆம், கிரிட் இணைப்பு உள்ளது", o_grid_no: "இல்லை, நம்பகமான கிரிட் இணைப்பு இல்லை",
+    q_land: "தோராயமாக எத்தனை ஏக்கர் நிலம் உள்ளது?", ph_land: "எ.கா. 2",
+    q_sell: "உபரி சோலார் மின்சாரத்தை கிரிட்டுக்கு விற்க விரும்புகிறீர்களா?",
+    o_sell_yes: "ஆம்", o_sell_no: "இல்லை, எனது சொந்த பாசனத்திற்கு மட்டும்",
+    errorGeneric: "உதவியாளரை அடைவதில் ஏதோ தவறு ஏற்பட்டது. சிறிது நேரம் கழித்து முயற்சிக்கவும்.",
+    fb_ho_applies: "உங்கள் விவரங்களின்படி, PM சூர்யா கர் கூரை சோலார் திட்டம் உங்களுக்குப் பொருந்தும்.",
+    fb_ho_support: "பொருத்தமான மதிப்பிடப்பட்ட சிஸ்டம் அளவு: தோராயமாக {size} kW. மதிப்பிடப்பட்ட மத்திய மானியம்: தோராயமாக ₹{subsidy} (நேரடி பயன் பரிமாற்றம் மூலம்). மதிப்பிடப்பட்ட மாத சேமிப்பு: தோராயமாக ₹{savings}. மதிப்பிடப்பட்ட பேபேக் காலம்: தோராயமாக {years} ஆண்டுகள். இவை தோராயமான மதிப்பீடுகள், உத்தரவாதங்கள் அல்ல.",
+    fb_ho_loan_note: " நீங்கள் கடனை விரும்புவதால், 12 பொதுத்துறை வங்கிகள் மூலம் சுமார் 6.75% வட்டியில் ₹2 லட்சம் வரை உத்தரவாதம் இல்லாத கடன் கிடைக்கும்.",
+    fb_ho_steps: "1. உங்கள் மின் இணைப்பு விவரங்களை உறுதிப்படுத்தி, ஆதார், சமீபத்திய மின் பில், சொத்து உரிமை ஆதாரம் ஆகியவற்றைச் சேகரிக்கவும்.\n2. அதிகாரப்பூர்வ தேசிய போர்ட்டல் மூலம் விண்ணப்பித்து, பதிவு செய்யப்பட்ட பட்டியலில் இருந்து ஒரு விற்பனையாளரைத் தேர்ந்தெடுக்கவும்.\n3. நீங்கள் தேர்ந்தெடுத்த பேனல்கள் ALMM பட்டியலில் உள்ளதா எனச் சரிபார்க்கவும்.\n4. நிறுவல் மற்றும் DISCOM ஆய்வுக்குப் பிறகு, மானியம் பொதுவாக 15–45 நாட்களுக்குள் உங்கள் வங்கிக் கணக்கிற்கு மாற்றப்படும்.\n5. அனைத்து ஆவணங்களிலும் உங்கள் பெயரும் முகவரியும் சரியாகப் பொருந்துகிறதா எனச் சரிபார்க்கவும் — அரசு மானியத்தை வழங்க முன்பணம் ஒருபோதும் கேட்காது.",
+    fb_sources_ho: "PM சூர்யா கர் — முஃப்த் பிஜ்லி யோஜனா; மோசடி மற்றும் நிராகரிப்பைத் தவிர்த்தல்",
+    fb_fm_offgrid_applies: "உங்கள் விவரங்களின்படி, PM-KUSUM கூறு B (தனி சோலார் பாசன பம்ப்) உங்களுக்குப் பொருந்தும்.",
+    fb_fm_offgrid_support: "ஒரு வழக்கமான 7.5 HP சோலார் பம்பின் விலை மானியத்திற்கு முன் தோராயமாக ₹4.5–5 லட்சம். மத்திய உதவி இந்த செலவில் சுமார் 30% ஈடுசெய்யும், மேலும் உங்கள் மாநில அரசு பொதுவாக மேலும் 30% சேர்க்கும். வங்கி நிதியுதவியுடன், உங்கள் ஆரம்ப பங்கு மொத்த செலவில் சுமார் 10% வரை குறையலாம். இவை தோராயமான புள்ளிவிவரங்கள் — உண்மையான மானிய பங்கு மாநிலத்திற்கு மாநிலம் மாறுபடும்.",
+    fb_fm_offgrid_steps: "1. உங்கள் மாநிலத்தில் தற்போதைய மானிய விகிதங்களைச் சரிபார்க்க PM-KUSUM மாநில நோடல் ஏஜென்சியைத் தொடர்பு கொள்ளவும்.\n2. நில உரிமை ஆவணங்கள் மற்றும் அடையாள ஆதாரத்தைச் சேகரிக்கவும்.\n3. உங்கள் மாநிலத்தின் PM-KUSUM போர்ட்டல் அல்லது நோடல் ஏஜென்சி மூலம் விண்ணப்பிக்கவும்.\n4. பம்ப் நிறுவலுக்கு பதிவு செய்யப்பட்ட விற்பனையாளரைத் தேர்ந்தெடுக்கவும்.\n5. முன்பணம் செலுத்தும் முன் அனைத்து செலவுகள் மற்றும் மானிய பங்குகளையும் எழுத்துப்பூர்வமாக சரிபார்க்கவும் — அரசு மானியத்தை வழங்க முன்பணம் ஒருபோதும் கேட்காது.",
+    fb_sources_fm_offgrid: "PM-KUSUM (கூறு B); மோசடி மற்றும் நிராகரிப்பைத் தவிர்த்தல்",
+    fb_fm_gridA_applies: "உங்கள் விவரங்களின்படி, PM-KUSUM கூறு A (உங்கள் நிலத்தில் சிறிய சோலார் மின் உற்பத்தி நிலையம் அமைத்து மின்சாரம் விற்பது) ஆராயத்தக்கது.",
+    fb_fm_gridA_support: "கூறு A விவசாயிகள், கூட்டுறவு சங்கங்கள் அல்லது FPOக்கள் தங்கள் நிலத்தில் மையப்படுத்தப்படாத சோலார் நிலையங்களை (500 kW–2 MW) அமைத்து, உள்ளூர் DISCOM-க்கு நிர்ணயிக்கப்பட்ட விகிதத்தில் மின்சாரம் விற்க அனுமதிக்கிறது. சரியான செலவுகள் மற்றும் விகிதங்கள் உங்கள் மாநில செயல்படுத்தும் ஏஜென்சியைப் பொறுத்தது — தற்போதைய விகிதங்களுக்கு உங்கள் மாநில நோடல் ஏஜென்சியைச் சரிபார்க்கவும்.",
+    fb_sources_fm_gridA: "PM-KUSUM (கூறு A)",
+    fb_fm_gridC_applies: "உங்கள் விவரங்களின்படி, PM-KUSUM கூறு C (உங்கள் தற்போதைய கிரிட் இணைப்புள்ள பம்பை சோலார்மயமாக்குதல்) ஆராயத்தக்கது.",
+    fb_fm_gridC_support: "கூறு C உங்கள் தற்போதைய விவசாய பம்பை சோலார் ஆற்றல் மூலம் இயக்கவும், உபரி மின்சாரத்தை DISCOM-க்கு திரும்ப விற்கவும் அனுமதிக்கிறது. சரியான மானிய பங்குகள் மற்றும் செலவுகள் மாநிலத்திற்கு மாநிலம் மாறுபடும் — தற்போதைய விகிதங்களுக்கு உங்கள் மாநில நோடல் ஏஜென்சியைச் சரிபார்க்கவும்.",
+    fb_sources_fm_gridC: "PM-KUSUM (கூறு C)",
+    fb_fm_grid_steps: "1. உங்கள் மாநிலத்தில் எந்த கூறு மற்றும் மானிய விகிதம் பொருந்தும் எனச் சரிபார்க்க PM-KUSUM மாநில நோடல் ஏஜென்சியைத் தொடர்பு கொள்ளவும்.\n2. நிலம் மற்றும் பம்ப் உரிமை ஆவணங்களைச் சேகரிக்கவும்.\n3. உங்கள் மாநிலத்தின் PM-KUSUM போர்ட்டல் மூலம் விண்ணப்பிக்கவும்.\n4. முன்பணம் செலுத்தும் முன் அனைத்து செலவுகள் மற்றும் மானிய பங்குகளையும் எழுத்துப்பூர்வமாக சரிபார்க்கவும் — அரசு மானியத்தை வழங்க முன்பணம் ஒருபோதும் கேட்காது.",
+    fb_local_estimate_tag: " (உள்ளூர் மதிப்பீடு — நேரடி AI தற்காலிகமாகக் கிடைக்கவில்லை)",
+    fb_offline_note: "நேரடி AI தற்காலிகமாகக் கிடைக்கவில்லை, எனவே ரோஷினியின் ஆதாரங்களில் இருந்து மிகவும் பொருத்தமான தகவல் இங்கே:",
+    langName: "தமிழ் (Tamil)"
+  },
+  pa: {
+    sidebarSub: "ਭਾਰਤ ਵਿੱਚ ਨਵਿਆਉਣਯੋਗ ਊਰਜਾ ਯੋਜਨਾਵਾਂ ਬਾਰੇ ਸਰਲ ਭਾਸ਼ਾ ਵਿੱਚ ਜਾਣਕਾਰੀ।",
+    topicsLabel: "ਰੋਸ਼ਨੀ ਨੂੰ ਕਿਹੜੇ ਵਿਸ਼ਿਆਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਹੈ",
+    sidebarNote: "ਰੋਸ਼ਨੀ ਸਿਰਫ਼ ਪੰਜ ਸਰਕਾਰੀ ਸਰੋਤਾਂ ਦੇ ਆਧਾਰ 'ਤੇ ਜਵਾਬ ਦਿੰਦੀ ਹੈ। ਜੇ ਜਾਣਕਾਰੀ ਉਪਲਬਧ ਨਹੀਂ ਹੈ, ਤਾਂ ਇਹ ਅੰਦਾਜ਼ਾ ਲਗਾਉਣ ਦੀ ਬਜਾਏ ਸਾਫ਼ ਦੱਸ ਦੇਵੇਗੀ।",
+    lastVerified: "ਸਰੋਤ ਆਖ਼ਰੀ ਵਾਰ ਜਾਂਚੇ ਗਏ",
+    pageTitle: "ਤੁਹਾਡੀ ਆਪਣੀ ਨਵਿਆਉਣਯੋਗ ਊਰਜਾ ਯੋਜਨਾ",
+    pageSub: "ਕੁਝ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦਿਓ ਜਾਂ ਕੁਝ ਵੀ ਪੁੱਛੋ — ਅਸਲੀ ਭਾਰਤ ਸਰਕਾਰ ਦੀਆਂ ਯੋਜਨਾਵਾਂ 'ਤੇ ਆਧਾਰਿਤ।",
+    tabPlan: "ਮੇਰੀ ਨਿੱਜੀ ਯੋਜਨਾ ਪ੍ਰਾਪਤ ਕਰੋ",
+    tabChat: "ਰੋਸ਼ਨੀ ਤੋਂ ਕੁਝ ਵੀ ਪੁੱਛੋ",
+    disclaimer: "ਇਹ ਇੱਕ ਜਾਣਕਾਰੀ ਸਹਾਇਕ ਹੈ, ਅਧਿਕਾਰਤ ਸਰਕਾਰੀ ਸਰੋਤ ਨਹੀਂ। ਅਰਜ਼ੀ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਨੈਸ਼ਨਲ ਪੋਰਟਲ ਜਾਂ ਆਪਣੇ ਸਥਾਨਕ DISCOM ਤੋਂ ਅੰਤਿਮ ਵੇਰਵਿਆਂ ਦੀ ਪੁਸ਼ਟੀ ਜ਼ਰੂਰ ਕਰੋ।",
+    back: "ਪਿੱਛੇ", next: "ਅੱਗੇ", generate: "ਮੇਰੀ ਯੋਜਨਾ ਬਣਾਓ", startOver: "ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ",
+    download: "ਮੇਰੀ ਯੋਜਨਾ ਡਾਊਨਲੋਡ ਕਰੋ", askFollowUp: "ਇੱਕ ਹੋਰ ਸਵਾਲ ਪੁੱਛੋ",
+    loadingPlan: "ਯੋਜਨਾਵਾਂ ਦੀ ਜਾਣਕਾਰੀ ਵੇਖੀ ਜਾ ਰਹੀ ਹੈ ਅਤੇ ਤੁਹਾਡੇ ਲਈ ਕੀ ਢੁਕਵਾਂ ਹੈ ਇਹ ਤੈਅ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…",
+    chatWelcomeTitle: "ਕਿੱਥੋਂ ਸ਼ੁਰੂ ਕਰੀਏ?",
+    chatWelcomeBody: "ਹੇਠਾਂ ਦਿੱਤੇ ਸਵਾਲਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚੁਣੋ, ਖੱਬੇ ਪਾਸੇ ਕੋਈ ਵਿਸ਼ਾ ਚੁਣੋ, ਜਾਂ ਆਪਣਾ ਸਵਾਲ ਖੁਦ ਲਿਖੋ।",
+    inputPlaceholder: "ਕਿਸੇ ਯੋਜਨਾ, ਸਬਸਿਡੀ, ਜਾਂ ਸੋਲਰ ਬਾਰੇ ਪੁੱਛੋ…",
+    ask: "ਪੁੱਛੋ", you: "ਤੁਸੀਂ ਪੁੱਛਿਆ", roshni: "ਰੋਸ਼ਨੀ", source: "ਸਰੋਤ",
+    sectionApplies: "ਤੁਹਾਡੇ 'ਤੇ ਕੀ ਲਾਗੂ ਹੁੰਦਾ ਹੈ", sectionSupport: "ਅਨੁਮਾਨਿਤ ਸਹਾਇਤਾ", sectionSteps: "ਤੁਹਾਡੇ ਅਗਲੇ ਕਦਮ", sectionSources: "ਸਰੋਤ",
+    q_persona: "ਤੁਸੀਂ ਕੌਣ ਹੋ?",
+    o_homeowner: "ਘਰ ਦਾ ਮਾਲਕ (ਛੱਤ 'ਤੇ ਸੋਲਰ ਚਾਹੁੰਦਾ ਹੈ)",
+    o_farmer: "ਕਿਸਾਨ (ਸੋਲਰ ਪੰਪ ਜਾਂ ਜ਼ਮੀਨ ਲਈ)",
+    q_state: "ਤੁਸੀਂ ਕਿਹੜੇ ਰਾਜ ਵਿੱਚ ਰਹਿੰਦੇ ਹੋ?", ph_state: "ਜਿਵੇਂ ਪੰਜਾਬ",
+    q_bill: "ਤੁਹਾਡਾ ਔਸਤ ਮਾਸਿਕ ਬਿਜਲੀ ਬਿੱਲ ਕਿੰਨਾ ਹੈ (₹ ਵਿੱਚ)?", ph_bill: "ਜਿਵੇਂ 2000",
+    q_roof: "ਤੁਹਾਡੀ ਛੱਤ 'ਤੇ ਧੁੱਪ ਵਾਲੀ ਜਗ੍ਹਾ ਕਿੰਨੀ ਹੈ?",
+    o_roof_s: "ਛੋਟੀ (300 ਵਰਗ ਫੁੱਟ ਤੋਂ ਘੱਟ)", o_roof_m: "ਦਰਮਿਆਨੀ (300–600 ਵਰਗ ਫੁੱਟ)", o_roof_l: "ਵੱਡੀ (600+ ਵਰਗ ਫੁੱਟ)",
+    q_budget: "ਤੁਸੀਂ ਸ਼ੁਰੂਆਤੀ ਖਰਚਾ ਕਿਵੇਂ ਪੂਰਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+    o_budget_full: "ਮੈਂ ਪੂਰਾ ਖਰਚਾ ਖੁਦ ਦੇ ਸਕਦਾ/ਸਕਦੀ ਹਾਂ", o_budget_loan: "ਮੈਨੂੰ ਬਿਨਾਂ ਗਾਰੰਟੀ ਵਾਲਾ ਲੋਨ ਚਾਹੀਦਾ ਹੈ", o_budget_low: "ਮੈਨੂੰ ਸਭ ਤੋਂ ਘੱਟ ਸ਼ੁਰੂਆਤੀ ਖਰਚਾ ਚਾਹੀਦਾ ਹੈ",
+    q_state_farm: "ਤੁਹਾਡਾ ਖੇਤ ਕਿਹੜੇ ਰਾਜ ਵਿੱਚ ਹੈ?",
+    q_grid: "ਕੀ ਤੁਹਾਡੇ ਖੇਤ ਵਿੱਚ ਬਿਜਲੀ ਗਰਿੱਡ ਦੀ ਸਹੂਲਤ ਹੈ?",
+    o_grid_yes: "ਹਾਂ, ਗਰਿੱਡ ਨਾਲ ਜੁੜਿਆ ਹੈ", o_grid_no: "ਨਹੀਂ, ਭਰੋਸੇਯੋਗ ਗਰਿੱਡ ਸਹੂਲਤ ਨਹੀਂ ਹੈ",
+    q_land: "ਤੁਹਾਡੇ ਕੋਲ ਲਗਭਗ ਕਿੰਨੀ ਏਕੜ ਜ਼ਮੀਨ ਹੈ?", ph_land: "ਜਿਵੇਂ 2",
+    q_sell: "ਕੀ ਤੁਸੀਂ ਵਾਧੂ ਸੋਲਰ ਬਿਜਲੀ ਗਰਿੱਡ ਨੂੰ ਵੇਚਣਾ ਚਾਹੋਗੇ?",
+    o_sell_yes: "ਹਾਂ", o_sell_no: "ਨਹੀਂ, ਸਿਰਫ਼ ਆਪਣੀ ਸਿੰਚਾਈ ਲਈ",
+    errorGeneric: "ਸਹਾਇਕ ਤੱਕ ਪਹੁੰਚਣ ਵਿੱਚ ਕੁਝ ਗੜਬੜ ਹੋਈ। ਕਿਰਪਾ ਕਰਕੇ ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    fb_ho_applies: "ਤੁਹਾਡੇ ਵੇਰਵਿਆਂ ਦੇ ਅਨੁਸਾਰ, PM ਸੂਰਜ ਘਰ ਰੂਫਟਾਪ ਸੋਲਰ ਯੋਜਨਾ ਤੁਹਾਡੇ 'ਤੇ ਲਾਗੂ ਹੁੰਦੀ ਹੈ।",
+    fb_ho_support: "ਅਨੁਮਾਨਿਤ ਢੁਕਵਾਂ ਸਿਸਟਮ ਆਕਾਰ: ਲਗਭਗ {size} kW। ਅਨੁਮਾਨਿਤ ਕੇਂਦਰੀ ਸਬਸਿਡੀ: ਲਗਭਗ ₹{subsidy} (ਡਾਇਰੈਕਟ ਬੈਨੀਫਿਟ ਟ੍ਰਾਂਸਫਰ ਰਾਹੀਂ)। ਅਨੁਮਾਨਿਤ ਮਾਸਿਕ ਬੱਚਤ: ਲਗਭਗ ₹{savings}। ਅਨੁਮਾਨਿਤ ਪੇਬੈਕ ਮਿਆਦ: ਲਗਭਗ {years} ਸਾਲ। ਇਹ ਅਨੁਮਾਨਿਤ ਅੰਕੜੇ ਹਨ, ਗਾਰੰਟੀ ਨਹੀਂ।",
+    fb_ho_loan_note: " ਕਿਉਂਕਿ ਤੁਸੀਂ ਲੋਨ ਪਸੰਦ ਕਰਦੇ ਹੋ, 12 ਜਨਤਕ ਖੇਤਰ ਦੇ ਬੈਂਕਾਂ ਰਾਹੀਂ ਲਗਭਗ 6.75% ਵਿਆਜ 'ਤੇ ₹2 ਲੱਖ ਤੱਕ ਦਾ ਬਿਨਾਂ ਗਾਰੰਟੀ ਵਾਲਾ ਲੋਨ ਉਪਲਬਧ ਹੈ।",
+    fb_ho_steps: "1. ਆਪਣੇ ਬਿਜਲੀ ਕੁਨੈਕਸ਼ਨ ਦੇ ਵੇਰਵਿਆਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਆਧਾਰ, ਤਾਜ਼ਾ ਬਿਜਲੀ ਬਿੱਲ, ਅਤੇ ਜਾਇਦਾਦ ਮਾਲਕੀ ਸਬੂਤ ਇਕੱਠੇ ਕਰੋ।\n2. ਰੂਫਟਾਪ ਸੋਲਰ ਲਈ ਅਧਿਕਾਰਤ ਨੈਸ਼ਨਲ ਪੋਰਟਲ ਰਾਹੀਂ ਅਰਜ਼ੀ ਦਿਓ ਅਤੇ ਰਜਿਸਟਰਡ ਸੂਚੀ ਵਿੱਚੋਂ ਇੱਕ ਵਿਕਰੇਤਾ ਚੁਣੋ।\n3. ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਹਾਡੇ ਚੁਣੇ ਪੈਨਲ ALMM ਸੂਚੀ ਵਿੱਚ ਹਨ।\n4. ਇੰਸਟਾਲੇਸ਼ਨ ਅਤੇ ਡਿਸਕਾਮ ਨਿਰੀਖਣ ਤੋਂ ਬਾਅਦ, ਸਬਸਿਡੀ ਆਮ ਤੌਰ 'ਤੇ 15–45 ਦਿਨਾਂ ਵਿੱਚ ਤੁਹਾਡੇ ਬੈਂਕ ਖਾਤੇ ਵਿੱਚ ਟ੍ਰਾਂਸਫਰ ਹੋ ਜਾਂਦੀ ਹੈ।\n5. ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਸਾਰੇ ਦਸਤਾਵੇਜ਼ਾਂ ਵਿੱਚ ਤੁਹਾਡਾ ਨਾਮ ਅਤੇ ਪਤਾ ਬਿਲਕੁਲ ਮੇਲ ਖਾਂਦਾ ਹੋਵੇ — ਸਰਕਾਰ ਸਬਸਿਡੀ ਜਾਰੀ ਕਰਨ ਲਈ ਕਦੇ ਵੀ ਪਹਿਲਾਂ ਭੁਗਤਾਨ ਨਹੀਂ ਮੰਗਦੀ।",
+    fb_sources_ho: "PM ਸੂਰਜ ਘਰ — ਮੁਫਤ ਬਿਜਲੀ ਯੋਜਨਾ; ਧੋਖਾਧੜੀ ਅਤੇ ਅਸਵੀਕਾਰੀ ਤੋਂ ਬਚਾਅ",
+    fb_fm_offgrid_applies: "ਤੁਹਾਡੇ ਵੇਰਵਿਆਂ ਦੇ ਅਨੁਸਾਰ, PM-KUSUM ਭਾਗ B (ਸਟੈਂਡਅਲੋਨ ਸੋਲਰ ਸਿੰਚਾਈ ਪੰਪ) ਤੁਹਾਡੇ 'ਤੇ ਲਾਗੂ ਹੁੰਦਾ ਹੈ।",
+    fb_fm_offgrid_support: "ਇੱਕ ਆਮ 7.5 HP ਸੋਲਰ ਪੰਪ ਦੀ ਕੀਮਤ ਸਬਸਿਡੀ ਤੋਂ ਪਹਿਲਾਂ ਲਗਭਗ ₹4.5–5 ਲੱਖ ਹੁੰਦੀ ਹੈ। ਕੇਂਦਰੀ ਸਹਾਇਤਾ ਇਸ ਲਾਗਤ ਦਾ ਲਗਭਗ 30% ਕਵਰ ਕਰਦੀ ਹੈ, ਅਤੇ ਤੁਹਾਡੀ ਰਾਜ ਸਰਕਾਰ ਆਮ ਤੌਰ 'ਤੇ ਹੋਰ 30% ਜੋੜਦੀ ਹੈ। ਬੈਂਕ ਵਿੱਤ ਨਾਲ, ਤੁਹਾਡਾ ਸ਼ੁਰੂਆਤੀ ਹਿੱਸਾ ਕੁੱਲ ਲਾਗਤ ਦੇ ਲਗਭਗ 10% ਜਿੰਨਾ ਘੱਟ ਹੋ ਸਕਦਾ ਹੈ। ਇਹ ਅਨੁਮਾਨਿਤ ਅੰਕੜੇ ਹਨ — ਅਸਲ ਸਬਸਿਡੀ ਹਿੱਸਾ ਰਾਜ ਅਨੁਸਾਰ ਵੱਖ-ਵੱਖ ਹੋ ਸਕਦਾ ਹੈ।",
+    fb_fm_offgrid_steps: "1. ਆਪਣੇ ਰਾਜ ਵਿੱਚ ਮੌਜੂਦਾ ਸਬਸਿਡੀ ਦਰਾਂ ਜਾਣਨ ਲਈ PM-KUSUM ਰਾਜ ਨੋਡਲ ਏਜੰਸੀ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।\n2. ਜ਼ਮੀਨ ਮਾਲਕੀ ਦਸਤਾਵੇਜ਼ ਅਤੇ ਪਛਾਣ ਸਬੂਤ ਇਕੱਠੇ ਕਰੋ।\n3. ਆਪਣੇ ਰਾਜ ਦੇ PM-KUSUM ਪੋਰਟਲ ਜਾਂ ਨੋਡਲ ਏਜੰਸੀ ਰਾਹੀਂ ਅਰਜ਼ੀ ਦਿਓ।\n4. ਪੰਪ ਇੰਸਟਾਲੇਸ਼ਨ ਲਈ ਇੱਕ ਰਜਿਸਟਰਡ ਵਿਕਰੇਤਾ ਚੁਣੋ।\n5. ਕੋਈ ਵੀ ਪਹਿਲਾਂ ਭੁਗਤਾਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਸਾਰੀਆਂ ਲਾਗਤਾਂ ਅਤੇ ਸਬਸਿਡੀ ਹਿੱਸਿਆਂ ਦੀ ਲਿਖਤੀ ਪੁਸ਼ਟੀ ਕਰੋ — ਸਰਕਾਰ ਸਬਸਿਡੀ ਜਾਰੀ ਕਰਨ ਲਈ ਕਦੇ ਵੀ ਪਹਿਲਾਂ ਭੁਗਤਾਨ ਨਹੀਂ ਮੰਗਦੀ।",
+    fb_sources_fm_offgrid: "PM-KUSUM (ਭਾਗ B); ਧੋਖਾਧੜੀ ਅਤੇ ਅਸਵੀਕਾਰੀ ਤੋਂ ਬਚਾਅ",
+    fb_fm_gridA_applies: "ਤੁਹਾਡੇ ਵੇਰਵਿਆਂ ਦੇ ਅਨੁਸਾਰ, PM-KUSUM ਭਾਗ A (ਆਪਣੀ ਜ਼ਮੀਨ 'ਤੇ ਛੋਟਾ ਸੋਲਰ ਪਾਵਰ ਪਲਾਂਟ ਲਗਾ ਕੇ ਬਿਜਲੀ ਵੇਚਣਾ) ਵਿਚਾਰਨ ਯੋਗ ਹੈ।",
+    fb_fm_gridA_support: "ਭਾਗ A ਕਿਸਾਨਾਂ, ਸਹਿਕਾਰੀ ਸਭਾਵਾਂ, ਜਾਂ FPO ਨੂੰ ਆਪਣੀ ਜ਼ਮੀਨ 'ਤੇ ਵਿਕੇਂਦਰੀਕ੍ਰਿਤ ਸੋਲਰ ਪਲਾਂਟ (500 kW–2 MW) ਲਗਾਉਣ ਅਤੇ ਸਥਾਨਕ ਡਿਸਕਾਮ ਨੂੰ ਤੈਅ ਦਰ 'ਤੇ ਬਿਜਲੀ ਵੇਚਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ। ਸਹੀ ਲਾਗਤਾਂ ਅਤੇ ਦਰਾਂ ਤੁਹਾਡੀ ਰਾਜ ਲਾਗੂਕਰਨ ਏਜੰਸੀ 'ਤੇ ਨਿਰਭਰ ਕਰਦੀਆਂ ਹਨ — ਮੌਜੂਦਾ ਦਰਾਂ ਲਈ ਆਪਣੀ ਰਾਜ ਨੋਡਲ ਏਜੰਸੀ ਨਾਲ ਜਾਂਚ ਕਰੋ।",
+    fb_sources_fm_gridA: "PM-KUSUM (ਭਾਗ A)",
+    fb_fm_gridC_applies: "ਤੁਹਾਡੇ ਵੇਰਵਿਆਂ ਦੇ ਅਨੁਸਾਰ, PM-KUSUM ਭਾਗ C (ਤੁਹਾਡੇ ਮੌਜੂਦਾ ਗਰਿੱਡ ਨਾਲ ਜੁੜੇ ਪੰਪ ਨੂੰ ਸੋਲਰ ਬਣਾਉਣਾ) ਵਿਚਾਰਨ ਯੋਗ ਹੈ।",
+    fb_fm_gridC_support: "ਭਾਗ C ਤੁਹਾਨੂੰ ਆਪਣੇ ਮੌਜੂਦਾ ਖੇਤੀ ਪੰਪ ਨੂੰ ਸੋਲਰ ਊਰਜਾ ਨਾਲ ਚਲਾਉਣ ਅਤੇ ਵਾਧੂ ਬਿਜਲੀ ਡਿਸਕਾਮ ਨੂੰ ਵਾਪਸ ਵੇਚਣ ਦੀ ਸਹੂਲਤ ਦਿੰਦਾ ਹੈ। ਸਹੀ ਸਬਸਿਡੀ ਹਿੱਸੇ ਅਤੇ ਲਾਗਤਾਂ ਰਾਜ ਅਨੁਸਾਰ ਵੱਖ-ਵੱਖ ਹੁੰਦੀਆਂ ਹਨ — ਮੌਜੂਦਾ ਦਰਾਂ ਲਈ ਆਪਣੀ ਰਾਜ ਨੋਡਲ ਏਜੰਸੀ ਨਾਲ ਜਾਂਚ ਕਰੋ।",
+    fb_sources_fm_gridC: "PM-KUSUM (ਭਾਗ C)",
+    fb_fm_grid_steps: "1. ਆਪਣੇ ਰਾਜ ਵਿੱਚ ਕਿਹੜਾ ਭਾਗ ਅਤੇ ਸਬਸਿਡੀ ਦਰ ਲਾਗੂ ਹੁੰਦੀ ਹੈ ਇਹ ਜਾਣਨ ਲਈ PM-KUSUM ਰਾਜ ਨੋਡਲ ਏਜੰਸੀ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।\n2. ਜ਼ਮੀਨ ਅਤੇ ਪੰਪ ਮਾਲਕੀ ਦਸਤਾਵੇਜ਼ ਇਕੱਠੇ ਕਰੋ।\n3. ਆਪਣੇ ਰਾਜ ਦੇ PM-KUSUM ਪੋਰਟਲ ਰਾਹੀਂ ਅਰਜ਼ੀ ਦਿਓ।\n4. ਕੋਈ ਵੀ ਪਹਿਲਾਂ ਭੁਗਤਾਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਸਾਰੀਆਂ ਲਾਗਤਾਂ ਅਤੇ ਸਬਸਿਡੀ ਹਿੱਸਿਆਂ ਦੀ ਲਿਖਤੀ ਪੁਸ਼ਟੀ ਕਰੋ — ਸਰਕਾਰ ਸਬਸਿਡੀ ਜਾਰੀ ਕਰਨ ਲਈ ਕਦੇ ਵੀ ਪਹਿਲਾਂ ਭੁਗਤਾਨ ਨਹੀਂ ਮੰਗਦੀ।",
+    fb_local_estimate_tag: " (ਸਥਾਨਕ ਅਨੁਮਾਨ — ਲਾਈਵ AI ਅਸਥਾਈ ਤੌਰ 'ਤੇ ਉਪਲਬਧ ਨਹੀਂ)",
+    fb_offline_note: "ਲਾਈਵ AI ਅਸਥਾਈ ਤੌਰ 'ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਇੱਥੇ ਰੋਸ਼ਨੀ ਦੇ ਸਰੋਤਾਂ ਤੋਂ ਸਭ ਤੋਂ ਢੁਕਵੀਂ ਜਾਣਕਾਰੀ ਦਿੱਤੀ ਗਈ ਹੈ:",
+    langName: "ਪੰਜਾਬੀ (Punjabi)"
+  },
+  gu: {
+    sidebarSub: "ભારતમાં પુનઃપ્રાપ્ય ઊર્જા યોજનાઓ વિશે સરળ ભાષામાં માર્ગદર્શન.",
+    topicsLabel: "રોશનીને કઈ બાબતોની જાણકારી છે",
+    sidebarNote: "રોશની ફક્ત પાંચ સરકારી સ્રોતોના આધારે જવાબ આપે છે. જો માહિતી ઉપલબ્ધ ન હોય, તો તે અનુમાન લગાવવાને બદલે સ્પષ્ટ કહી દેશે.",
+    lastVerified: "સ્રોતો છેલ્લે ચકાસાયા",
+    pageTitle: "તમારી પોતાની પુનઃપ્રાપ્ય ઊર્જા યોજના",
+    pageSub: "થોડા પ્રશ્નોના જવાબ આપો અથવા કંઈ પણ પૂછો — ખરેખરી ભારત સરકારની યોજનાઓ પર આધારિત.",
+    tabPlan: "મારી વ્યક્તિગત યોજના મેળવો",
+    tabChat: "રોશનીને કંઈ પણ પૂછો",
+    disclaimer: "આ એક માહિતી સહાયક છે, સત્તાવાર સરકારી સ્રોત નથી. અરજી કરતાં પહેલાં નેશનલ પોર્ટલ અથવા તમારા સ્થાનિક DISCOM પરથી અંતિમ વિગતોની ખાતરી કરો.",
+    back: "પાછળ", next: "આગળ", generate: "મારી યોજના બનાવો", startOver: "ફરીથી શરૂ કરો",
+    download: "મારી યોજના ડાઉનલોડ કરો", askFollowUp: "વધુ એક પ્રશ્ન પૂછો",
+    loadingPlan: "યોજનાઓની માહિતી તપાસવામાં આવી રહી છે અને તમારા માટે શું યોગ્ય છે તે નક્કી કરવામાં આવી રહ્યું છે…",
+    chatWelcomeTitle: "ક્યાંથી શરૂ કરીએ?",
+    chatWelcomeBody: "નીચેથી કોઈ પ્રશ્ન પસંદ કરો, ડાબી બાજુથી કોઈ વિષય ક્લિક કરો, અથવા તમારો પોતાનો પ્રશ્ન લખો.",
+    inputPlaceholder: "કોઈ યોજના, સબસિડી, અથવા સોલર કેવી રીતે કામ કરે છે તે વિશે પૂછો…",
+    ask: "પૂછો", you: "તમે પૂછ્યું", roshni: "રોશની", source: "સ્રોત",
+    sectionApplies: "તમને શું લાગુ પડે છે", sectionSupport: "અંદાજિત સહાય", sectionSteps: "તમારા આગળના પગલાં", sectionSources: "સ્રોતો",
+    q_persona: "તમે કોણ છો?",
+    o_homeowner: "ઘરમાલિક (છત પર સોલર ઇચ્છે છે)",
+    o_farmer: "ખેડૂત (સોલર પંપ અથવા જમીન માટે)",
+    q_state: "તમે કયા રાજ્યમાં રહો છો?", ph_state: "દા.ત. ગુજરાત",
+    q_bill: "તમારું સરેરાશ માસિક વીજળી બિલ કેટલું છે (₹ માં)?", ph_bill: "દા.ત. 2000",
+    q_roof: "તમારી છત પર તડકાવાળી જગ્યા કેટલી છે?",
+    o_roof_s: "નાની (300 ચોરસ ફૂટથી ઓછી)", o_roof_m: "મધ્યમ (300–600 ચોરસ ફૂટ)", o_roof_l: "મોટી (600+ ચોરસ ફૂટ)",
+    q_budget: "તમે શરૂઆતનો ખર્ચ કેવી રીતે ઉઠાવવા માંગો છો?",
+    o_budget_full: "હું આખો ખર્ચ જાતે ઉઠાવી શકું છું", o_budget_loan: "મારે ગેરંટી વગરની લોન જોઈએ છે", o_budget_low: "મારે સૌથી ઓછો શરૂઆતનો ખર્ચ જોઈએ છે",
+    q_state_farm: "તમારું ખેતર કયા રાજ્યમાં છે?",
+    q_grid: "શું તમારા ખેતરમાં વીજળી ગ્રિડની સુવિધા છે?",
+    o_grid_yes: "હા, ગ્રિડ સાથે જોડાયેલ છે", o_grid_no: "ના, વિશ્વસનીય ગ્રિડ સુવિધા નથી",
+    q_land: "તમારી પાસે આશરે કેટલા એકર જમીન છે?", ph_land: "દા.ત. 2",
+    q_sell: "શું તમે વધારાની સોલર વીજળી ગ્રિડને વેચવા માંગો છો?",
+    o_sell_yes: "હા", o_sell_no: "ના, ફક્ત મારી પોતાની સિંચાઈ માટે",
+    errorGeneric: "સહાયક સુધી પહોંચવામાં કંઈક ગડબડ થઈ. કૃપા કરીને થોડી વાર પછી ફરી પ્રયાસ કરો.",
+    fb_ho_applies: "તમારી વિગતો અનુસાર, PM સૂર્ય ઘર છત સોલર યોજના તમને લાગુ પડે છે.",
+    fb_ho_support: "અંદાજિત યોગ્ય સિસ્ટમ કદ: આશરે {size} kW. અંદાજિત કેન્દ્રીય સબસિડી: આશરે ₹{subsidy} (ડાયરેક્ટ બેનિફિટ ટ્રાન્સફર દ્વારા). અંદાજિત માસિક બચત: આશરે ₹{savings}. અંદાજિત પેબેક સમયગાળો: આશરે {years} વર્ષ. આ અંદાજિત આંકડા છે, ગેરંટી નથી.",
+    fb_ho_loan_note: " કારણ કે તમે લોન પસંદ કરો છો, 12 જાહેર ક્ષેત્રની બેંકો દ્વારા આશરે 6.75% વ્યાજે ₹2 લાખ સુધીની ગેરંટી વગરની લોન ઉપલબ્ધ છે.",
+    fb_ho_steps: "1. તમારા વીજળી કનેક્શનની વિગતોની ખાતરી કરો અને આધાર, તાજેતરનું વીજળી બિલ, અને મિલકત માલિકીનો પુરાવો એકત્રિત કરો.\n2. છત સોલર માટે અધિકૃત નેશનલ પોર્ટલ દ્વારા અરજી કરો અને નોંધાયેલ યાદીમાંથી વિક્રેતા પસંદ કરો.\n3. ખાતરી કરો કે તમે પસંદ કરેલા પેનલ ALMM યાદીમાં છે.\n4. સ્થાપન અને DISCOM નિરીક્ષણ પછી, સબસિડી સામાન્ય રીતે 15–45 દિવસમાં તમારા બેંક ખાતામાં ટ્રાન્સફર થાય છે.\n5. ખાતરી કરો કે તમામ દસ્તાવેજોમાં તમારું નામ અને સરનામું બરાબર મેળ ખાય છે — સરકાર સબસિડી આપવા માટે ક્યારેય અગાઉથી ચુકવણી માંગતી નથી.",
+    fb_sources_ho: "PM સૂર્ય ઘર — મુફ્ત બિજલી યોજના; છેતરપિંડી અને નકારવાનું ટાળવું",
+    fb_fm_offgrid_applies: "તમારી વિગતો અનુસાર, PM-KUSUM ઘટક B (સ્વતંત્ર સોલર સિંચાઈ પંપ) તમને લાગુ પડે છે.",
+    fb_fm_offgrid_support: "એક સામાન્ય 7.5 HP સોલર પંપની કિંમત સબસિડી પહેલાં આશરે ₹4.5–5 લાખ હોય છે. કેન્દ્રીય સહાય આ ખર્ચના આશરે 30% આવરી લે છે, અને તમારી રાજ્ય સરકાર સામાન્ય રીતે વધુ 30% ઉમેરે છે. બેંક ધિરાણ સાથે, તમારો શરૂઆતનો હિસ્સો કુલ ખર્ચના આશરે 10% જેટલો ઓછો હોઈ શકે છે. આ અંદાજિત આંકડા છે — વાસ્તવિક સબસિડી હિસ્સો રાજ્ય પ્રમાણે અલગ હોઈ શકે છે.",
+    fb_fm_offgrid_steps: "1. તમારા રાજ્યમાં હાલના સબસિડી દર જાણવા માટે PM-KUSUM રાજ્ય નોડલ એજન્સીનો સંપર્ક કરો.\n2. જમીન માલિકીના દસ્તાવેજો અને ઓળખનો પુરાવો એકત્રિત કરો.\n3. તમારા રાજ્યના PM-KUSUM પોર્ટલ અથવા નોડલ એજન્સી દ્વારા અરજી કરો.\n4. પંપ સ્થાપન માટે નોંધાયેલ વિક્રેતા પસંદ કરો.\n5. કોઈપણ અગાઉથી ચુકવણી કરતાં પહેલાં તમામ ખર્ચ અને સબસિડી હિસ્સાની લેખિતમાં ખાતરી કરો — સરકાર સબસિડી આપવા માટે ક્યારેય અગાઉથી ચુકવણી માંગતી નથી.",
+    fb_sources_fm_offgrid: "PM-KUSUM (ઘટક B); છેતરપિંડી અને નકારવાનું ટાળવું",
+    fb_fm_gridA_applies: "તમારી વિગતો અનુસાર, PM-KUSUM ઘટક A (તમારી જમીન પર નાનો સોલર પાવર પ્લાન્ટ સ્થાપીને વીજળી વેચવી) ધ્યાનમાં લેવા યોગ્ય છે.",
+    fb_fm_gridA_support: "ઘટક A ખેડૂતો, સહકારી મંડળીઓ, અથવા FPOને તેમની જમીન પર વિકેન્દ્રિત સોલર પ્લાન્ટ (500 kW–2 MW) સ્થાપવા અને સ્થાનિક DISCOMને નિશ્ચિત દરે વીજળી વેચવાની મંજૂરી આપે છે. ચોક્કસ ખર્ચ અને દરો તમારી રાજ્ય અમલીકરણ એજન્સી પર આધારિત છે — હાલના દરો માટે તમારી રાજ્ય નોડલ એજન્સી સાથે તપાસ કરો.",
+    fb_sources_fm_gridA: "PM-KUSUM (ઘટક A)",
+    fb_fm_gridC_applies: "તમારી વિગતો અનુસાર, PM-KUSUM ઘટક C (તમારા હાલના ગ્રિડ સાથે જોડાયેલા પંપને સોલર બનાવવો) ધ્યાનમાં લેવા યોગ્ય છે.",
+    fb_fm_gridC_support: "ઘટક C તમને તમારા હાલના ખેતી પંપને સોલર ઊર્જાથી ચલાવવા અને વધારાની વીજળી DISCOMને પાછી વેચવાની સુવિધા આપે છે. ચોક્કસ સબસિડી હિસ્સા અને ખર્ચ રાજ્ય પ્રમાણે અલગ હોય છે — હાલના દરો માટે તમારી રાજ્ય નોડલ એજન્સી સાથે તપાસ કરો.",
+    fb_sources_fm_gridC: "PM-KUSUM (ઘટક C)",
+    fb_fm_grid_steps: "1. તમારા રાજ્યમાં કયો ઘટક અને સબસિડી દર લાગુ પડે છે તે જાણવા માટે PM-KUSUM રાજ્ય નોડલ એજન્સીનો સંપર્ક કરો.\n2. જમીન અને પંપ માલિકીના દસ્તાવેજો એકત્રિત કરો.\n3. તમારા રાજ્યના PM-KUSUM પોર્ટલ દ્વારા અરજી કરો.\n4. કોઈપણ અગાઉથી ચુકવણી કરતાં પહેલાં તમામ ખર્ચ અને સબસિડી હિસ્સાની લેખિતમાં ખાતરી કરો — સરકાર સબસિડી આપવા માટે ક્યારેય અગાઉથી ચુકવણી માંગતી નથી.",
+    fb_local_estimate_tag: " (સ્થાનિક અંદાજ — લાઇવ AI હાલ પૂરતું ઉપલબ્ધ નથી)",
+    fb_offline_note: "લાઇવ AI હાલ પૂરતું ઉપલબ્ધ નથી, તેથી અહીં રોશનીના સ્રોતોમાંથી સૌથી સંબંધિત માહિતી આપવામાં આવી છે:",
+    langName: "ગુજરાતી (Gujarati)"
   }
 };
 
@@ -517,7 +734,8 @@ RULES:
 2. You may use the SIZING REFERENCE note in Source 1 to make rough, clearly-labeled estimates (e.g. suggested system size, approximate subsidy amount) based on the citizen's stated bill or land size. Always phrase these as approximate estimates, never guarantees.
 3. Never promise an exact rupee saving or a guaranteed eligibility outcome. Use ranges and words like "approximately" or "typically."
 4. Write entirely in ${langName}, in simple, plain language a non-technical person can follow. If ${langName} is Hindi, write fully in Hindi (Devanagari script), not transliterated English.
-5. Structure your ENTIRE response using exactly these four markers, each alone on its own line, in this exact order, written EXACTLY as shown (do not translate the markers themselves, only the content beneath them):
+5. If the citizen's profile suggests they are about to apply (e.g. they picked a budget preference), briefly weave in one relevant caution from Source 5 (rejection reasons or fraud warning signs) into the STEPS section, where it naturally fits.
+6. Structure your ENTIRE response using exactly these four markers, each alone on its own line, in this exact order, written EXACTLY as shown (do not translate the markers themselves, only the content beneath them):
 [[APPLIES]]
 (content in ${langName} explaining which scheme(s) apply to this citizen and why)
 [[SUPPORT]]
@@ -525,9 +743,9 @@ RULES:
 [[STEPS]]
 (content in ${langName}: a short numbered list of next steps and documents needed, in order)
 [[SOURCES]]
-(content in ${langName}: name which of the four sources this plan drew from)
-6. Keep the whole response concise — a short paragraph or a few bullet points per section, not an essay.
-7. Remind the citizen, briefly, to confirm final details with the official National Portal or their local DISCOM.
+(content in ${langName}: name which of the five sources this plan drew from)
+7. Keep the whole response concise — a short paragraph or a few bullet points per section, not an essay.
+8. Remind the citizen, briefly, to confirm final details with the official National Portal or their local DISCOM.
 
 KNOWLEDGE BASE:
 ${KNOWLEDGE_BASE}`;
@@ -542,7 +760,7 @@ RULES:
 2. If the answer is not in the knowledge base, say clearly you don't have that information in your current sources and suggest checking the official National Portal or local DISCOM. Do not guess.
 3. Write in simple, plain language. Briefly explain any technical term (like "DISCOM") the first time you use it.
 4. Respond in ${langName}, unless the citizen's question is clearly written in a different language, in which case respond in that language instead.
-5. End every answer with a line starting with "${t('source')}:" naming which of the four sources (PM Surya Ghar, PM-KUSUM, Net Metering Policy, or Myths & FAQs) the answer came from.
+5. End every answer with a line starting with "${t('source')}:" naming which of the five sources (PM Surya Ghar, PM-KUSUM, Net Metering Policy, Myths & FAQs, or Avoiding Rejections & Fraud) the answer came from.
 6. Never state or imply a guaranteed personal rupee saving — describe what the scheme provides, not a personal promise.
 7. You are not a government authority; encourage users to verify on the official portal or with their DISCOM.
 8. Keep answers concise — a few short paragraphs at most.
@@ -568,16 +786,101 @@ function profileSummary() {
 }
 
 async function callClaude(system, userMessage, historyForContext) {
-  const messages = [...historyForContext, { role: 'user', content: userMessage }];
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 1000, system, messages })
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 7000);
+    const messages = [...historyForContext, { role: 'user', content: userMessage }];
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 1000, system, messages }),
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    if (!response.ok) return null;
+    const data = await response.json();
+    let text = "";
+    if (data.content) text = data.content.map(b => b.type === 'text' ? b.text : '').join('\n').trim();
+    return text || null;
+  } catch (err) {
+    console.warn('Here is what I have information based on schemes mentioned ', err);
+    return null;
+  }
+}
+
+function buildPlanFallback() {
+  const isFarmer = answers.persona === 'farmer';
+  let applies, support, steps, sources;
+
+  if (!isFarmer) {
+    const bill = parseFloat(answers.bill) || 0;
+    const avgTariff = 8;
+    const units = bill / avgTariff;
+    let size = Math.round((units / 120) * 2) / 2;
+    size = Math.min(Math.max(size, 1), 10);
+    const firstTier = Math.min(size, 2) * 30000;
+    const thirdTier = size > 2 ? 18000 : 0;
+    const subsidy = Math.min(Math.round(firstTier + thirdTier), 78000);
+    const genUnits = size * 120;
+    const savingsRaw = genUnits * avgTariff;
+    const savings = Math.round(Math.min(savingsRaw, bill * 0.9));
+    const totalCost = size * 55000;
+    const netCost = Math.max(totalCost - subsidy, 0);
+    const paybackMonths = savings > 0 ? netCost / savings : null;
+    const years = paybackMonths ? (paybackMonths / 12).toFixed(1) : 'N/A';
+
+    applies = t('fb_ho_applies');
+    support = t('fb_ho_support')
+      .replace('{size}', size).replace('{subsidy}', subsidy.toLocaleString('en-IN'))
+      .replace('{savings}', savings.toLocaleString('en-IN')).replace('{years}', years);
+    if (answers.budget === 'loan') support += t('fb_ho_loan_note');
+    steps = t('fb_ho_steps');
+    sources = t('fb_sources_ho');
+  } else {
+    if (answers.gridAccess === 'offgrid') {
+      applies = t('fb_fm_offgrid_applies');
+      support = t('fb_fm_offgrid_support');
+      steps = t('fb_fm_offgrid_steps');
+      sources = t('fb_sources_fm_offgrid');
+    } else {
+      const land = parseFloat(answers.landSize) || 0;
+      if (answers.sellSurplus === 'yes' && land >= 1) {
+        applies = t('fb_fm_gridA_applies');
+        support = t('fb_fm_gridA_support');
+        sources = t('fb_sources_fm_gridA');
+      } else {
+        applies = t('fb_fm_gridC_applies');
+        support = t('fb_fm_gridC_support');
+        sources = t('fb_sources_fm_gridC');
+      }
+      steps = t('fb_fm_grid_steps');
+    }
+  }
+  sources += t('fb_local_estimate_tag');
+  return `[[APPLIES]]\n${applies}\n[[SUPPORT]]\n${support}\n[[STEPS]]\n${steps}\n[[SOURCES]]\n${sources}`;
+}
+
+function buildChatFallback(question) {
+  const paragraphs = KNOWLEDGE_BASE.split('\n').map(p => p.trim()).filter(p => p.length > 30 && !p.startsWith('SOURCE'));
+  const qWords = question.toLowerCase().split(/\W+/).filter(w => w.length > 3);
+  let best = null, bestScore = 0;
+  paragraphs.forEach(p => {
+    const pLower = p.toLowerCase();
+    let score = 0;
+    qWords.forEach(w => { if (pLower.includes(w)) score++; });
+    if (score > bestScore) { bestScore = score; best = p; }
   });
-  const data = await response.json();
-  let text = "";
-  if (data.content) text = data.content.map(b => b.type === 'text' ? b.text : '').join('\n').trim();
-  return text || null;
+
+  let sourceName = 'Roshni sources';
+  if (best) {
+    const idx = KNOWLEDGE_BASE.indexOf(best);
+    const beforeText = KNOWLEDGE_BASE.slice(0, idx);
+    const sourceMatches = [...beforeText.matchAll(/SOURCE \d+: ([^\n]+)/g)];
+    if (sourceMatches.length) sourceName = sourceMatches[sourceMatches.length - 1][1];
+  }
+
+  const content = best || "I don't have that information in my current sources — please check the official National Portal or your local DISCOM.";
+  return `${t('fb_offline_note')}\n\n${content}\n\n${t('source')}: ${sourceName}${t('fb_local_estimate_tag')}`;
 }
 
 function parsePlan(text) {
@@ -603,13 +906,11 @@ async function generatePlan() {
   const userMessage = `Citizen profile:\n${profileSummary()}\n\nPlease generate the personalized plan following the required format.`;
   conversation = [];
 
-  const text = await callClaude(planSystemPrompt(), userMessage, []);
+  let text = await callClaude(planSystemPrompt(), userMessage, []);
   document.getElementById('planLoading').classList.add('hidden');
 
   if (!text) {
-    document.getElementById('planLoading').classList.remove('hidden');
-    document.getElementById('planLoading').textContent = t('errorGeneric');
-    return;
+    text = buildPlanFallback();
   }
 
   lastPlanRaw = text;
@@ -622,7 +923,7 @@ async function generatePlan() {
     <div class="plan-section applies"><h3>${t('sectionApplies')}</h3><div class="body">${escapeHtml(parts['[[APPLIES]]'] || '')}</div></div>
     <div class="plan-section support"><h3>${t('sectionSupport')}</h3><div class="body">${escapeHtml(parts['[[SUPPORT]]'] || '')}</div></div>
     <div class="plan-section steps"><h3>${t('sectionSteps')}</h3><div class="body">${escapeHtml(parts['[[STEPS]]'] || '')}</div></div>
-    <div class="plan-section sources"><h3>${t('sectionSources')}</h3><div class="body">${escapeHtml(parts['[[SOURCES]]'] || '')}</div></div>
+    <div class="plan-section sources"><h3>${t('sectionSources')}</h3><div class="body">${escapeHtml(parts['[[SOURCES]]'] || '')} — ${t('lastVerified')}: ${LAST_VERIFIED}</div></div>
     <div class="plan-actions">
       <button class="btn-ghost" id="startOverBtn">${t('startOver')}</button>
       <button class="btn-ghost" id="downloadBtn">${t('download')}</button>
@@ -689,21 +990,20 @@ async function askRoshni(question) {
   document.getElementById('chatInput').value = '';
   document.getElementById('chatSend').disabled = true;
 
-  const text = await callClaude(chatSystemPrompt(), question, conversation);
+  let text = await callClaude(chatSystemPrompt(), question, conversation);
   const aBlock = entry.querySelector('.a-block');
   aBlock.classList.remove('loading');
 
   if (!text) {
-    aBlock.innerHTML = `<div class="who">${t('roshni')}</div><div class="a-text">${t('errorGeneric')}</div>`;
-  } else {
-    conversation.push({ role: 'user', content: question }, { role: 'assistant', content: text });
-    const { body, source } = splitSource(text);
-    aBlock.innerHTML = `
-      <div class="who">${t('roshni')}</div>
-      <div class="a-text">${escapeHtml(body)}</div>
-      ${source ? `<div class="a-source">${t('source')}: ${escapeHtml(source)}</div>` : ''}
-    `;
+    text = buildChatFallback(question);
   }
+  conversation.push({ role: 'user', content: question }, { role: 'assistant', content: text });
+  const { body, source } = splitSource(text);
+  aBlock.innerHTML = `
+    <div class="who">${t('roshni')}</div>
+    <div class="a-text">${escapeHtml(body)}</div>
+    ${source ? `<div class="a-source">${t('source')}: ${escapeHtml(source)}</div>` : ''}
+  `;
   document.getElementById('chatSend').disabled = false;
   ledger.scrollTop = ledger.scrollHeight;
 }
@@ -734,8 +1034,14 @@ document.getElementById('tabChatBtn').addEventListener('click', () => switchTab(
 
 function applyLanguage() {
   document.body.classList.toggle('lang-hi', lang === 'hi');
+  document.body.classList.toggle('lang-ta', lang === 'ta');
+  document.body.classList.toggle('lang-pa', lang === 'pa');
+  document.body.classList.toggle('lang-gu', lang === 'gu');
   document.getElementById('langEn').classList.toggle('active', lang === 'en');
   document.getElementById('langHi').classList.toggle('active', lang === 'hi');
+  document.getElementById('langTa').classList.toggle('active', lang === 'ta');
+  document.getElementById('langPa').classList.toggle('active', lang === 'pa');
+  document.getElementById('langGu').classList.toggle('active', lang === 'gu');
 
   document.getElementById('sidebarSub').textContent = t('sidebarSub');
   document.getElementById('topicsLabel').textContent = t('topicsLabel');
@@ -754,6 +1060,9 @@ function applyLanguage() {
 }
 document.getElementById('langEn').addEventListener('click', () => { lang = 'en'; applyLanguage(); });
 document.getElementById('langHi').addEventListener('click', () => { lang = 'hi'; applyLanguage(); });
+document.getElementById('langTa').addEventListener('click', () => { lang = 'ta'; applyLanguage(); });
+document.getElementById('langPa').addEventListener('click', () => { lang = 'pa'; applyLanguage(); });
+document.getElementById('langGu').addEventListener('click', () => { lang = 'gu'; applyLanguage(); });
 
 /* =========================================================
    INIT
